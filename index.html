@@ -14,106 +14,99 @@
             --dark-purple: #3c096c;
             --deep-background: #1a052e;
             --gold-accent: #d4af37;
-            --light-bg: #f8f6fa;
-            --card-shadow: 0 10px 30px rgba(138, 25, 214, 0.08);
+            --light-bg: #ffffff;
+            --text-dark: #111111;
+            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             --border-purple: #3c1963;
         }
 
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #2d2d2d; background-color: var(--light-bg); scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: var(--text-dark); background-color: var(--light-bg); scroll-behavior: smooth; }
         
-        /* Navigation */
-        .top-nav { background-color: var(--deep-background); border-bottom: 2px solid var(--gold-accent); padding: 0.6rem 1.5rem; position: sticky; top: 0; z-index: 1000; }
-        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: flex-start; align-items: center; gap: 1.5rem; }
-        .nav-link { color: #ffffff; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; display: flex; align-items: center; gap: 0.4rem; }
-        .nav-link:hover { color: var(--gold-accent); }
-        
-        .nav-shop-container { display: flex; align-items: center; gap: 0.5rem; border: 1px solid #ff9f1c; padding: 0.3rem 0.8rem; border-radius: 4px; background-color: rgba(255, 159, 28, 0.05); transition: all 0.2s; margin-right: auto; }
-        .nav-shop-logo { height: 24px; width: auto; border-radius: 2px; }
-        .nav-shop-link { color: #ff9f1c !important; text-decoration: none; font-weight: 700; }
-        .nav-shop-container:hover { background-color: #ff9f1c; }
-        .nav-shop-container:hover .nav-shop-link { color: var(--deep-background) !important; }
+        /* Flache, professionelle Navigation im Körber-Stil (Roter Kreis) */
+        .top-nav { background-color: #ffffff; border-bottom: 1px solid #eeeeee; padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: flex-start; align-items: center; gap: 2.5rem; }
+        .nav-logo-text { font-weight: 800; font-size: 1.2rem; color: var(--dark-purple); text-decoration: none; letter-spacing: 1px; }
+        .nav-link { color: #555555; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-link:hover { color: var(--primary-purple); }
+        .nav-shop-link { color: #ff9f1c !important; font-weight: 700; margin-left: auto; border: 1px solid #ff9f1c; padding: 0.4rem 1rem; border-radius: 4px; transition: all 0.2s; }
+        .nav-shop-link:hover { background-color: #ff9f1c; color: #ffffff !important; }
 
-        /* HEADER: Logo auf exakt 1100px maximale Breite vergrößert */
-        header { background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple)); color: white; padding: 3.5rem 1rem 3rem 1rem; text-align: center; border-bottom: 5px solid var(--gold-accent); }
+        /* Großer lila Header-Bereich für das Hauptlogo */
+        header { background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple)); color: white; padding: 4rem 1rem; text-align: center; border-bottom: 5px solid var(--gold-accent); }
         .logo-container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; box-sizing: border-box; }
         .logo-img { width: 100%; max-width: 1100px; height: auto; display: block; margin: 0 auto 1.5rem auto; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25)); }
-        header p { margin: 0 auto; font-size: 1.25rem; color: #f2e6ff; font-weight: 300; max-width: 850px; line-height: 1.4; }
+        header p { margin: 0 auto; font-size: 1.3rem; color: #f2e6ff; font-weight: 300; max-width: 850px; line-height: 1.4; }
         
-        .container { max-width: 1100px; margin: 2rem auto; padding: 0 1.5rem; box-sizing: border-box; }
-        .status-area { text-align: left; margin-bottom: 2.5rem; }
-        .status-badge { display: inline-block; background-color: #27ae60; color: white; padding: 0.4rem 1.2rem; border-radius: 20px; font-weight: bold; font-size: 0.95rem; box-shadow: 0 4px 6px rgba(39,174,96,0.2); }
+        .container { max-width: 1200px; margin: 4rem auto; padding: 0 1.5rem; box-sizing: border-box; }
         
-        /* Leistungen Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-        .card { background: white; padding: 1.8rem; border-radius: 12px; box-shadow: var(--card-shadow); border-top: 5px solid var(--primary-purple); text-align: left; transition: transform 0.3s; }
-        .card:hover { transform: translateY(-5px); }
-        .card h3 { margin-top: 0; color: var(--dark-purple); font-size: 1.3rem; }
-        .price-tag { display: inline-block; background: #d93838; color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
-        .small-law { font-size: 0.8rem; color: #7f8c8d; display: block; margin-top: 0.5rem; line-height: 1.3; }
-        
-        .shop-button-container { margin: 3.5rem 0; text-align: left; }
-        .btn-shop { display: inline-block; background: #ff9f1c; color: var(--deep-background); padding: 1rem 2.5rem; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 1.2rem; box-shadow: 0 6px 15px rgba(255, 159, 28, 0.25); transition: all 0.2s; border: 2px solid transparent; }
-        .btn-shop:hover { background: transparent; color: var(--primary-purple); border-color: var(--primary-purple); transform: translateY(-2px); }
-        
-        /* Projekte */
-        .projects-section { margin-top: 5rem; text-align: left; }
-        .projects-section h2 { color: var(--dark-purple); font-size: 2rem; margin-bottom: 2.5rem; position: relative; padding-bottom: 0.5rem; }
-        .projects-section h2::after { content: ''; width: 60px; height: 3px; background-color: var(--gold-accent); position: absolute; bottom: 0; left: 0; }
-        
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2.5rem; }
-        .project-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); border: 1px solid rgba(138, 25, 214, 0.08); }
-        .project-img-wrapper { width: 100%; height: 340px; overflow: hidden; background-color: #ffffff; border-bottom: 3px solid var(--primary-purple); }
-        .project-img { width: 100%; height: 100%; object-fit: contain; padding: 0.5rem; box-sizing: border-box; transition: transform 0.3s; }
-        .project-card:hover .project-img { transform: scale(1.04); }
-        .project-title { padding: 1.2rem; margin: 0; background-color: white; color: var(--dark-purple); font-size: 1.15rem; font-weight: 600; border-top: 1px solid #eee; }
-        
-        .btn-top { display: inline-block; background: var(--primary-purple); color: white; padding: 0.6rem 1.2rem; border-radius: 4px; text-decoration: none; font-size: 0.9rem; font-weight: bold; margin-top: 1rem; transition: background 0.2s; }
-        .btn-top:hover { background: var(--dark-purple); }
+        .section-title { font-size: 2.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem; text-align: left; }
+        .section-subtitle { font-size: 1.1rem; color: #666666; margin-bottom: 2.5rem; text-align: left; }
 
-        .contact-section { background: var(--dark-purple); color: white; padding: 3rem 2rem; border-radius: 12px; margin-top: 5rem; text-align: left; border: 1px solid var(--gold-accent); box-shadow: var(--card-shadow); }
-        .contact-section h3 { margin-top: 0; font-size: 1.6rem; color: #ffffff; }
-        .contact-section a { color: #ff9f1c; text-decoration: underline; font-weight: bold; }
+        /* Horizontaler Karten-Bereich im Körber-Stil (Blauer Kreis) */
+        .horizontal-scroll-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; }
         
-        /* Footer */
+        .koerber-card { background: #f9f9f9; border-radius: 4px; overflow: hidden; box-shadow: var(--card-shadow); transition: all 0.3s ease; display: flex; flex-direction: column; justify-content:建设; min-height: 380px; position: relative; border-top: 4px solid transparent; }
+        .koerber-card:hover { transform: translateY(-5px); background: var(--primary-purple); border-top-color: var(--gold-accent); }
+        .koerber-card:hover h3, .koerber-card:hover p { color: #ffffff; }
+        
+        .card-content { padding: 2rem 1.5rem; display: flex; flex-direction: column; height: 100%; box-sizing: border-box; }
+        .koerber-card h3 { font-size: 1.4rem; font-weight: 700; color: var(--text-dark); margin-top: 0; margin-bottom: 1rem; transition: color 0.2s; }
+        .koerber-card p { font-size: 0.95rem; color: #555555; margin: 0; transition: color 0.2s; flex-grow: 1; }
+        
+        .card-footer-link { margin-top: auto; font-weight: 700; color: var(--primary-purple); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; padding-top: 1.5rem; }
+        .koerber-card:hover .card-footer-link { color: var(--gold-accent); }
+
+        /* Großer Infoblock für Webdesign */
+        .webdesign-featured { background: linear-gradient(135deg, #fbf9fe, #f5e6ff); border-left: 6px solid var(--primary-purple); padding: 2.5rem; border-radius: 4px; margin: 4rem 0; text-align: left; }
+        .webdesign-featured h3 { margin-top: 0; font-size: 1.8rem; color: var(--dark-purple); }
+        .price-badge { background: #d93838; color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-weight: bold; font-size: 1rem; margin-left: 1rem; }
+
+        /* Projekt-Grid (Große Bilder nebeneinander) */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .project-card { background: #ffffff; border: 1px solid #eeeeee; border-radius: 4px; overflow: hidden; box-shadow: var(--card-shadow); transition: transform 0.3s; }
+        .project-card:hover { transform: scale(1.02); }
+        .project-img-wrapper { width: 100%; height: 280px; overflow: hidden; background-color: #ffffff; }
+        .project-img { width: 100%; height: 100%; object-fit: contain; padding: 0.5rem; box-sizing: border-box; }
+        .project-title { padding: 1.2rem; margin: 0; font-size: 1.1rem; font-weight: 600; color: var(--text-dark); border-top: 1px solid #f0f0f0; background: #fafafa; }
+
+        .btn-top-container { text-align: left; margin-top: 2rem; }
+        .btn-top { display: inline-block; background: var(--primary-purple); color: white; padding: 0.6rem 1.2rem; border-radius: 4px; text-decoration: none; font-size: 0.9rem; font-weight: bold; }
+
+        .contact-section { background: var(--dark-purple); color: white; padding: 3rem 2.5rem; border-radius: 4px; margin-top: 6rem; text-align: left; border-left: 6px solid var(--gold-accent); }
+        .contact-section h3 { margin-top: 0; font-size: 1.8rem; }
+        .contact-section a { color: var(--gold-accent); text-decoration: underline; font-weight: bold; }
+
+        /* Footer mit linksbündigen Trennlinien */
         footer { background: var(--deep-background); color: #c2b4d6; padding: 4rem 1.5rem; margin-top: 6rem; border-top: 4px solid var(--gold-accent); }
-        .footer-container { max-width: 900px; margin: 0 auto; text-align: left; }
+        .footer-container { max-width: 1200px; margin: 0 auto; text-align: left; }
         
-        .accordion-item { margin-bottom: 0.5rem; text-align: left; }
-        .accordion-divider { border: none; border-top: 1px solid var(--border-purple); margin: 0; padding: 0; width: 100%; text-align: left; }
+        .accordion-item { margin-bottom: 0.5rem; }
+        .accordion-divider { border: none; border-top: 1px solid var(--border-purple); margin: 0; padding: 0; width: 100%; }
         
-        .accordion-trigger { width: 100%; background: none; border: none; text-align: left; color: #ffffff; font-size: 1.2rem; font-weight: 600; padding: 1.2rem 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: color 0.2s; }
+        .accordion-trigger { width: 100%; background: none; border: none; text-align: left; color: #ffffff; font-size: 1.2rem; font-weight: 600; padding: 1.2rem 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
         .accordion-trigger:hover { color: var(--gold-accent); }
         .accordion-trigger::after { content: '➔'; font-size: 0.9rem; transition: transform 0.3s; color: var(--gold-accent); }
         
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; padding-right: 1.5rem; text-align: left; }
-        .legal-text { line-height: 1.6; font-size: 0.9rem; color: #c2b4d6; padding: 0.5rem 0 2rem 0; text-align: left; }
-        .legal-text p { margin: 0 0 1.2rem 0; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .legal-text { line-height: 1.6; font-size: 0.9rem; color: #c2b4d6; padding: 0.5rem 0 2rem 0; }
         
         .accordion-item.active .accordion-content { max-height: 1500px; transition: max-height 0.5s ease-in; }
         .accordion-item.active .accordion-trigger::after { transform: rotate(90deg); }
         
-        .footer-copyright { margin-top: 4rem; text-align: left; font-size: 0.85rem; color: #7c6894; }
-
-        @media (max-width: 600px) {
-            header { padding: 2.5rem 1rem 2rem 1rem; }
-            .logo-img { max-width: 100%; }
-            header p { font-size: 1.1rem; }
-            .nav-container { justify-content: space-between; gap: 0.5rem; }
-            .nav-shop-container { margin-right: 0; width: 100%; justify-content: center; }
-        }
+        .footer-copyright { margin-top: 4rem; font-size: 0.85rem; color: #7c6894; }
     </style>
 </head>
 <body>
 
+    <!-- Navigationsleiste im Körber-Stil -->
     <nav class="top-nav">
         <div class="nav-container">
-            <div class="nav-shop-container">
-                <img src="shop-logo.png" alt="PLC Team Design Shop Logo" class="nav-shop-logo" onerror="this.style.display='none'">
-                <a href="myspreadshop.de" target="_blank" rel="noopener noreferrer" class="nav-link nav-shop-link">PLC Team Design Shop</a>
-            </div>
-            <a href="#leistungen" class="nav-link">📋 Leistungen</a>
-            <a href="#projekte" class="nav-link">🛠️ Projekte</a>
-            <a href="#kontakt" class="nav-link">✉️ Kontakt</a>
+            <a href="#" class="nav-logo-text">PLC TEAM DESIGN</a>
+            <a href="#leistungen" class="nav-link">Leistungen</a>
+            <a href="#projekte" class="nav-link">Projekte</a>
+            <a href="#kontakt" class="nav-link">Kontakt</a>
+            <!-- Direkt verknüpfter Spreadshop-Link -->
+            <a href="https://plc-team-design.myspreadshop.de/" target="_blank" rel="noopener noreferrer" class="nav-link nav-shop-link">🛒 PLC Team Design Shop</a>
         </div>
     </nav>
 
@@ -124,41 +117,63 @@
         </div>
     </header>
 
-    <div id="leistungen" class="container">
-        <div class="status-area">
-            <div class="status-badge">Status: Aktuell erreichbar</div>
-        </div>
+    <div class="container">
         
-        <div class="grid">
-            <div class="card">
-                <h3>Individuelles Design</h3>
-                <p>Erstellung von 3D-Körpern als Dateiformat zur Weiterverarbeitung (Fräsen, Drehen, Lasern, 3D-Druck) oder für Werbezwecke.</p>
-            </div>
-            <div class="card">
-                <h3>Materialanpassungen</h3>
-                <p>Konstruktionen für Holz, Glas, Stahl, Blech, Kunststoff und weitere Werkstoffe.</p>
-            </div>
-            <div class="card">
-                <h3>Beratung & Begleitung</h3>
-                <p>Unterstützung bei der regionalen Produktion (ökologischer Fußabdruck) oder weltweiten Umsetzung.</p>
-            </div>
-            <div class="card" style="border-top-color: var(--gold-accent);">
-                <h3>Webdesign <span class="price-tag">100 €</span></h3>
-                <p>Kostengünstige Erstellung Ihrer Website auf Basis vorhandener Dokumente. Dauer der Implementierung & Betreuung: ca. ein Monat. Logo-Design auf Anfrage.</p>
-                <span class="small-law">* Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerstatus).</span>
-            </div>
-            <div class="card">
-                <h3>Technische Analysen</h3>
-                <p>Lösungen für Wiederherstellungen, Reparaturen von 3D-Bauteilen/Baugruppen sowie anschließende FEM-Analysen und Simulationsberechnungen.</p>
+        <!-- Sektion Leistungen im Körber-Karten-Stil (Blauer Kreis) -->
+        <div id="leistungen">
+            <h2 class="section-title">Industrien von morgen gestalten</h2>
+            <p class="section-subtitle">Entdecken Sie unsere ganzheitlichen, integrierten Lösungen für Ihre technischen 3D-Projekte.</p>
+            
+            <div class="horizontal-scroll-grid">
+                <!-- Karte 1 -->
+                <div class="koerber-card">
+                    <div class="card-content">
+                        <h3>Individuelles Design</h3>
+                        <p>Erstellung von 3D-Körpern als Dateiformat zur Weiterverarbeitung (Fräsen, Drehen, Lasern, 3D-Druck) oder für Werbezwecke.</p>
+                        <a href="https://plc-team-design.myspreadshop.de/" target="_blank" rel="noopener noreferrer" class="card-footer-link">Zum Shop öffnen ➔</a>
+                    </div>
+                </div>
+
+                <!-- Karte 2 -->
+                <div class="koerber-card">
+                    <div class="card-content">
+                        <h3>Materialanpassung</h3>
+                        <p>Konstruktionen für Holz, Glas, Stahl, Blech, Kunststoff und weitere Werkstoffe im industriellen Umfeld.</p>
+                        <a href="https://plc-team-design.myspreadshop.de/" target="_blank" rel="noopener noreferrer" class="card-footer-link">Zum Shop öffnen ➔</a>
+                    </div>
+                </div>
+
+                <!-- Karte 3 -->
+                <div class="koerber-card">
+                    <div class="card-content">
+                        <h3>Beratung</h3>
+                        <p>Unterstützung bei der regionalen Produktion (ökologischer Fußabdruck) oder weltweiten Umsetzung Ihrer Bauteile.</p>
+                        <a href="https://plc-team-design.myspreadshop.de/" target="_blank" rel="noopener noreferrer" class="card-footer-link">Zum Shop öffnen ➔</a>
+                    </div>
+                </div>
+
+                <!-- Karte 4 -->
+                <div class="koerber-card">
+                    <div class="card-content">
+                        <h3>Technische Analyse</h3>
+                        <p>Lösungen für Wiederherstellungen, Reparaturen von 3D-Bauteilen sowie anschließende FEM-Analysen und Berechnungen.</p>
+                        <a href="https://plc-team-design.myspreadshop.de/" target="_blank" rel="noopener noreferrer" class="card-footer-link">Zum Shop öffnen ➔</a>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="shop-button-container">
-            <a href="myspreadshop.de" target="_blank" rel="noopener noreferrer" class="btn-shop">🛍️ Meinen Spreadshop besuchen</a>
+        <!-- Hervorgehobener Webdesign-Bereich -->
+        <div class="webdesign-featured">
+            <h3>Professionelles Webdesign <span class="price-badge">100 €</span></h3>
+            <p>Kostengünstige Erstellung Ihrer Website auf Basis vorhandener Dokumente. Dauer der Implementierung & Betreuung: ca. ein Monat. Logo-Design auf Anfrage.</p>
+            <p style="font-size: 0.8rem; color: #7f8c8d; margin-top: 1rem;">* Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerstatus).</p>
         </div>
 
+        <!-- Sektion Projekte -->
         <div id="projekte" class="projects-section">
-            <h2>PROJEKTE</h2>
+            <h2 class="section-title">Projekte</h2>
+            <p class="section-subtitle">Ein Auszug unserer fortlaufenden Konstruktions- und Designarbeiten.</p>
 
             <div class="project-grid">
                 <div class="project-card">
@@ -190,16 +205,20 @@
                 </div>
             </div>
 
-            <a href="#" class="btn-top">▲ Nach oben zurückkehren</a>
+            <div class="btn-top-container">
+                <a href="#" class="btn-top">▲ Nach oben zurückkehren</a>
+            </div>
         </div>
 
+        <!-- Sektion Kontakt -->
         <div id="kontakt" class="contact-section">
-            <h3>Wir helfen Ihnen gerne weiter!</h3>
-            <p>Kontaktieren Sie uns bevorzugt per E-Mail:</p>
-            <p><a href="mailto:plctede@gmail.com">plctede@gmail.com</a></p>
+            <h3>Gemeinsam Projekte realisieren</h3>
+            <p>Wir helfen Ihnen gerne weiter! Kontaktieren Sie uns bevorzugt per E-Mail:</p>
+            <p><a href="mailto:plctede@gmail.com" style="font-size: 1.4rem;">plctede@gmail.com</a></p>
         </div>
     </div>
 
+    <!-- Fußzeile mit linksbündigen Trennlinien -->
     <footer>
         <div class="footer-container">
             <hr class="accordion-divider">
