@@ -79,7 +79,6 @@
             color: #ffffff;
         }
         
-        /* Shop-Link: 2 Zeilen unter der Liste */
         .sidebar-shop {
             margin-top: 2rem;
             background-color: #ffffff;
@@ -132,15 +131,16 @@
         
         .logo-container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
         
+        /* 3-PIXEL-RAND WIEDER HERGESTELLT */
         .logo-img { 
             width: 100%; 
             max-width: 800px; 
             height: auto; 
             display: block; 
             margin: 0 auto 2rem auto; 
-            background: transparent;
-            border: 3px solid #ffffff; /* 3px weißer Rand */
-            filter: drop-shadow(0px 6px 12px rgba(0,0,0,0.25));
+            border: 3px solid #ffffff; 
+            border-radius: 4px;
+            box-shadow: 0px 6px 12px rgba(0,0,0,0.25);
         }
         
         header p { font-size: 1.4rem; color: #ffffff; font-weight: 600; max-width: 800px; margin: 0 auto; line-height: 1.5; }
@@ -162,27 +162,56 @@
         
         .price-badge { background: #d93838; color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-weight: bold; font-size: 1.1rem; margin-left: 1rem; display: inline-block; vertical-align: middle; }
 
-        /* Projekte */
+        /* NEUE PROJEKT-STRUKTUR */
+        .projects-section { margin-top: 5rem; text-align: left; }
+        
+        /* Projekt 1: Volle Breite, kein Kasten */
+        .project-featured {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: transparent;
+            box-sizing: border-box;
+        }
+        
+        .project-featured-img-wrapper {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            overflow: visible;
+            position: relative;
+        }
+        
+        .project-featured-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        /* ANIMATION GEGEN DEN UHRZEIGERSINN */
+        @keyframes rotate-ccw {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(-360deg); }
+        }
+        .rotate-animation {
+            animation: rotate-ccw 12s linear infinite;
+        }
+        
+        .featured-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-top: 1.5rem;
+        }
+
+        /* Gitter für die restlichen Projekte darunter */
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
         .project-card { background: #ffffff; border: 1px solid #eeeeee; border-radius: 4px; overflow: hidden; box-shadow: var(--card-shadow); transition: transform 0.3s; }
         .project-card:hover { transform: scale(1.02); }
         
-        /* WICHTIG: Erlaubt dem Bild das Verlassen der Box für die Animation */
-        .project-img-wrapper { width: 100%; height: 250px; overflow: visible; position: relative; }
+        .project-img-wrapper { width: 100%; height: 250px; overflow: hidden; }
         .project-img { width: 100%; height: 100%; object-fit: contain; padding: 0.5rem; box-sizing: border-box; }
-        
-        /* ANIMATION FÜR PROJEKT 1 (Kontinuierlicher Durchlauf von der Mitte aus) */
-        @keyframes slide-ltr {
-            0% { transform: translateX(0); }
-            45% { transform: translateX(120vw); opacity: 1; }
-            46% { transform: translateX(-100vw); opacity: 0; }
-            47% { opacity: 1; }
-            100% { transform: translateX(0); }
-        }
-        .slide-animation {
-            animation: slide-ltr 15s linear infinite;
-        }
-        
         .project-title { padding: 1rem; margin: 0; font-size: 1rem; font-weight: 600; color: var(--text-dark); border-top: 1px solid #f0f0f0; background: #fafafa; }
 
         .contact-section { background: var(--dark-purple); color: white; padding: 3rem 2.5rem; border-radius: 4px; margin-top: 6rem; text-align: left; border-left: 6px solid var(--gold-accent); }
@@ -205,7 +234,7 @@
             .section-title { font-size: 2rem; }
             .horizontal-scroll-grid { grid-template-columns: 1fr; }
             .project-grid { grid-template-columns: 1fr; }
-            .slide-animation { animation: none; /* Deaktiviert auf Mobilgeräten für bessere Bedienung */ }
+            .project-featured-img-wrapper { width: 200px; height: 200px; }
         }
     </style>
 </head>
@@ -260,7 +289,6 @@
                             <p>Begleitung & Beratung für regionale Produktion (Ökologischer Fußabdruck) oder weltweit.</p>
                         </div>
                     </div>
-                    <!-- Webdesign als 4. Kachel integriert -->
                     <div class="koerber-card">
                         <div class="card-content">
                             <h3>Webdesign <span class="price-badge">100 €</span></h3>
@@ -271,19 +299,20 @@
             </div>
 
             <!-- Projekte -->
-            <div id="projekte">
+            <div id="projekte" class="projects-section">
                 <h2 class="section-title">Projekte</h2>
                 <p class="section-subtitle">Ein Auszug unserer fortlaufenden Konstruktions- und Designarbeiten.</p>
 
-                <div class="project-grid">
-                    <!-- Projekt 1 mit Lauf-Animation -->
-                    <div class="project-card">
-                        <div class="project-img-wrapper">
-                            <img src="projekt1.jpg" alt="Projekt 1" class="project-img slide-animation" onerror="this.style.display='none'">
-                        </div>
-                        <div class="project-title">Projekt 1: Technisches 3D-Bauteil</div>
+                <!-- PROJEKT 1: FREISTEHEND, OHNE KASTEN, DREHEND -->
+                <div class="project-featured">
+                    <div class="project-featured-img-wrapper">
+                        <img src="projekt1.jpg" alt="Projekt 1" class="project-featured-img rotate-animation" onerror="this.style.display='none'">
                     </div>
-                    <!-- Restliche Projekte bleiben normal -->
+                    <div class="featured-title">Nr. 1: Technisches 3D-Bauteil</div>
+                </div>
+
+                <!-- ANDERE PROJEKTE DARUNTER -->
+                <div class="project-grid">
                     <div class="project-card">
                         <div class="project-img-wrapper">
                             <img src="projekt2.jpg" alt="Projekt 2" class="project-img" onerror="this.style.display='none'">
@@ -321,6 +350,13 @@
             </div>
         </footer>
     </div>
+
+    <script>
+        function toggleAccordion(element) {
+            const item = element.parentElement;
+            item.classList.toggle('active');
+        }
+    </script>
 
 </body>
 </html>
