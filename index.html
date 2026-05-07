@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PLC TEAM DESIGN | Bad Oeynhausen</title>
+    
+    <!-- GOOGLE-VERIFIZIERUNGSCODE -->
     <meta name="google-site-verification" content="hXvCe_t1mEstDom0kluGGE9olJTBmsdgksjMmIZRnKs" />
+    
     <style>
         :root {
             --primary-purple: #741fa2;
@@ -15,13 +18,15 @@
             --text-dark: #111111;
             --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
+
         body { 
-            font-family: 'Segoe UI', Tahoma, sans-serif; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             line-height: 1.6; margin: 0; padding: 0; 
             color: var(--text-dark); background-color: var(--light-bg); 
             display: flex; overflow-x: hidden;
         }
-        /* SEITENLEISTE */
+        
+        /* SEITENLEISTE LINKS */
         .sidebar-nav {
             width: 250px; height: 100vh;
             background-color: var(--deep-background);
@@ -30,6 +35,7 @@
             display: flex; flex-direction: column;
             padding: 1.5rem 1rem; box-sizing: border-box; z-index: 1000;
         }
+        
         .sidebar-logo {
             font-weight: 800; font-size: 1.1rem;
             color: var(--text-dark); text-decoration: none;
@@ -37,6 +43,7 @@
             text-align: center; margin-bottom: 2.5rem;
             border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
+        
         .sidebar-link {
             color: var(--text-dark); text-decoration: none;
             font-weight: 700; font-size: 1rem;
@@ -45,14 +52,16 @@
             border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .sidebar-link:hover { background-color: var(--gold-accent); color: #ffffff; }
+        
+        /* Shop-Kachel mit Ihrem vollständigen Namen */
         .sidebar-shop {
-            margin-top: 1rem; background-color: #ffffff;
+            margin-top: auto; background-color: #ffffff;
             display: flex; flex-direction: column;
             align-items: center; padding: 0.8rem;
             border-radius: 4px; border: 2px solid #ff9f1c;
         }
         .sidebar-shop img { height: 25px; width: auto; margin-bottom: 0.5rem; }
-        .sidebar-shop a { color: #ff9f1c; text-decoration: none; font-weight: 800; font-size: 0.9rem; }
+        .sidebar-shop a { color: #ff9f1c; text-decoration: none; font-weight: 800; font-size: 0.85rem; text-align: center; }
         .sidebar-shop:hover { background-color: #ff9f1c; }
         .sidebar-shop:hover a { color: #ffffff; }
         
@@ -71,15 +80,17 @@
         header p { font-size: 1.4rem; font-weight: 600; max-width: 800px; margin: 0 auto; }
         .container { max-width: 1100px; margin: 4rem auto; padding: 0 2rem; }
         
-        /* KARTEN */
+        /* KARTEN MIT LANGEN TEXTEN */
         .section-title { font-size: 2.5rem; font-weight: 800; color: var(--primary-purple); margin-bottom: 0.5rem; text-align: left; }
         .section-subtitle { font-size: 1.2rem; color: #555555; margin-bottom: 3rem; text-align: left; }
         .horizontal-scroll-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; text-align: left; }
         .koerber-card { background: #f9f9f9; border-radius: 4px; min-height: 250px; border-top: 4px solid var(--primary-purple); padding: 1.5rem; box-shadow: var(--card-shadow); }
         .koerber-card h3 { font-size: 1.3rem; font-weight: 700; color: var(--dark-purple); margin-top: 0; }
+        .koerber-card p { font-size: 0.95rem; color: #444444; margin: 0; line-height: 1.5; }
         
         /* WEBDESIGN */
         .webdesign-featured { background: linear-gradient(135deg, #fbf9fe, #f5e6ff); border-left: 6px solid var(--primary-purple); padding: 2.5rem; border-radius: 4px; margin: 4rem 0; text-align: left; }
+        .webdesign-featured h3 { margin-top: 0; font-size: 2rem; color: var(--dark-purple); font-weight: 800; }
         .price-badge { background: #d93838; color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-weight: bold; }
 
         /* ANIMATION */
@@ -105,7 +116,7 @@
         footer { background: var(--deep-background); color: #c2b4d6; padding: 4rem 1.5rem; border-top: 4px solid var(--gold-accent); text-align: left; }
         .footer-container { max-width: 900px; margin: 0 auto; }
         .accordion-trigger { width: 100%; background: none; border: none; text-align: left; color: #ffffff; font-size: 1.3rem; font-weight: 600; padding: 1rem 0; cursor: pointer; display: flex; justify-content: space-between; }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height: 0.3s ease-out; }
         .accordion-item.active .accordion-content { max-height: 500px; }
         
         @media (max-width: 768px) {
@@ -117,6 +128,8 @@
     </style>
 </head>
 <body>
+
+    <!-- SEITENLEISTE -->
     <div class="sidebar-nav">
         <a href="#" class="sidebar-logo">PLC TEAM DESIGN</a>
         <a href="#leistungen" class="sidebar-link">Leistungen</a>
@@ -124,32 +137,55 @@
         <a href="#kontakt" class="sidebar-link">Contact</a>
         <div class="sidebar-shop">
             <img src="shop-logo.png" alt="Shop" onerror="this.style.display='none'">
-            <a href="myspreadshop.de" target="_blank" rel="noopener noreferrer">Spreadshop</a>
+            <!-- Ihr kompletter Shopname zurück -->
+            <a href="myspreadshop.de" target="_blank" rel="noopener noreferrer">PLC Team Design Shop</a>
         </div>
     </div>
+
+    <!-- HAUPTBEREICH -->
     <div class="main-content">
         <header>
             <div class="logo-container">
                 <img src="logo.png" alt="Logo" class="logo-img">
-                <p>✨ Design mit Leidenschaft und Herzblut 💫</p>
+                <p>✨ Design mit Leidenschaft und Herzblut – Wir sind Ihr Partner für technische Produkte & 3D-Objekte! 💫</p>
             </div>
         </header>
+
         <div class="container">
+            
+            <!-- Leistungen mit den geforderten langen Original-Texten -->
             <div id="leistungen">
                 <h2 class="section-title">Wir designen mit Leidenschaft</h2>
                 <p class="section-subtitle">Unser Versprechen: Wir designen für Sie.</p>
+                
                 <div class="horizontal-scroll-grid">
-                    <div class="koerber-card"><h3>Wunschdesign</h3><p>3D-Körper als Dateiformat zur Weiterverarbeitung wie Fräsen, Drehen, Lasern, 3D-Druck oder für Werbezwecke.</p></div>
-                    <div class="koerber-card"><h3>Materialanpassung</h3><p>Anpassungen von Holz, Glas, Stahl, Blech, Kunststoff, Pulver oder Weiteres.</p></div>
-                    <div class="koerber-card"><h3>Begleitung & Beratung</h3><p>Begleitung & Beratung für regionale Produktion (Ökologischer Fußabdruck) oder weltweit.</p></div>
-                    <div class="koerber-card"><h3>Technische Analyse</h3><p>Sie benötigen weitere Lösungen für Wiederherstellungen, Reparaturen der 3D-Körper von Bauteilen, Baugruppen und die anschließenden FEM-Analysen mit Simulationsberechnungen?</p></div>
+                    <div class="koerber-card">
+                        <h3>Wunschdesign</h3>
+                        <p>Wunschdesign, 3D-Körper als Dateiformat zur Weiterverarbeitung wie Fräsen, Drehen, Lasern, 3D-Druck oder für Werbezwecke.</p>
+                    </div>
+                    <div class="koerber-card">
+                        <h3>Materialanpassung</h3>
+                        <p>Anpassungen von Holz, Glas, Stahl, Blech, Kunststoff, Pulver oder Weiteres.</p>
+                    </div>
+                    <div class="koerber-card">
+                        <h3>Begleitung & Beratung</h3>
+                        <p>Begleitung & Beratung für regionale Produktion (Ökologischer Fußabdruck) oder weltweit.</p>
+                    </div>
+                    <div class="koerber-card">
+                        <h3>Technische Analyse</h3>
+                        <p>Sie benötigen weitere Lösungen für Wiederherstellungen, Reparaturen der 3D-Körper von Bauteilen, Baugruppen und die anschließenden FEM-Analysen mit Simulationsberechnungen?</p>
+                    </div>
                 </div>
             </div>
+
+            <!-- Webdesign -->
             <div class="webdesign-featured">
                 <h3>Webdesign für Unternehmen & Start-ups <span class="price-badge">100 €</span></h3>
                 <p>Unternehmen & Start-ups bei der kostengünstigen Erstellung ihrer Website mit vorhandenen Dokumenten für 100 €. Die Dauer der Implementierung & Betreuung beträgt ca. einen Monat. Wunsch-Logo wird zusätzlich berechnet.</p>
                 <p style="font-size: 0.8rem; color: #7f8c8d;">* Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.</p>
             </div>
+
+            <!-- Projekte -->
             <div id="projekte" class="projects-section">
                 <h2 class="section-title">Projekte</h2>
                 <div class="project-featured">
@@ -163,17 +199,25 @@
                     <div class="project-card"><img src="projekt4.jpg" alt="Projekt 4" class="project-img"><p class="project-title">Projekt 4</p></div>
                 </div>
             </div>
+
+            <!-- Kontakt -->
             <div id="kontakt" class="contact-section">
                 <h3>Gemeinsam Projekte realisieren</h3>
                 <p>Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a></p>
             </div>
         </div>
+
         <footer>
             <div class="footer-container">
                 <div class="accordion-item">
                     <button class="accordion-trigger" onclick="toggleAccordion(this)">Impressum ➔</button>
                     <div class="accordion-content">
-                        <div class="legal-text"><strong>PLC Team Design</strong><br>Pedro Lereno Cordeiro<br>Rastenburger Str. 11<br>32545 Bad Oeynhausen</div>
+                        <div class="legal-text">
+                            <strong>PLC Team Design</strong><br>
+                            Pedro Lereno Cordeiro (Maschinenbau-Techniker)<br>
+                            Rastenburger Str. 11<br>
+                            32545 Bad Oeynhausen
+                        </div>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -186,6 +230,7 @@
             </div>
         </footer>
     </div>
+
     <script>
         function toggleAccordion(element) {
             const item = element.parentElement;
