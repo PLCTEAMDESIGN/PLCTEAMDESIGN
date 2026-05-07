@@ -9,26 +9,37 @@
     <meta name="google-site-verification" content="hXvCe_t1mEstDom0kluGGE9olJTBmsdgksjMmIZRnKs" />
     
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; background-color: #f5f3f7; }
-        header { background: linear-gradient(135deg, #2e1a47, #4a2c73); color: white; padding: 3rem 1rem; text-align: center; border-bottom: 4px solid #d4af37; }
-        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; color: #f3ebff; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
-        header p { margin: 1rem 0 0 0; font-size: 1.2rem; color: #e1d5f5; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; background-color: #f8f5fa; }
+        header { background: linear-gradient(135deg, #5b108e, #8a19d6); color: white; padding: 3rem 1rem; text-align: center; border-bottom: 4px solid #d4af37; }
+        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; color: #ffffff; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
+        header p { margin: 1rem 0 0 0; font-size: 1.2rem; color: #f2e6ff; }
         .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
         .status-badge { display: inline-block; background-color: #27ae60; color: white; padding: 0.3rem 1rem; border-radius: 20px; font-weight: bold; margin-bottom: 2rem; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
-        .card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(74, 44, 115, 0.08); border-top: 4px solid #6c46a6; }
-        .card h3 { margin-top: 0; color: #2e1a47; }
+        .card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(138, 25, 214, 0.06); border-top: 4px solid #8a19d6; text-align: left; }
+        .card h3 { margin-top: 0; color: #5b108e; }
         .price-tag { display: inline-block; background: #d93838; color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
         .small-law { font-size: 0.8rem; color: #7f8c8d; display: block; margin-top: 0.5rem; line-height: 1.3; }
-        .contact-section { background: #3c235c; color: white; padding: 2rem; border-radius: 8px; margin-top: 3rem; text-align: center; border: 1px solid #d4af37; }
-        .contact-section a { color: #e1d5f5; text-decoration: none; font-weight: bold; }
-        .btn-shop { display: inline-block; background: #e67e22; color: white; padding: 0.8rem 1.5rem; text-align: center; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: background 0.2s; }
-        .btn-shop:hover { background: #d35400; }
-        footer { background: #1f1130; color: #c2b4d6; padding: 2rem 1rem; margin-top: 4rem; font-size: 0.9rem; border-top: 3px solid #d4af37; }
-        footer h4 { color: white; margin-top: 1.5rem; border-bottom: 1px solid #3c235c; padding-bottom: 0.5rem; }
+        
+        /* PROJEKT SEKTION MIT BILDERN */
+        .projects-section { margin-top: 4rem; text-align: left; }
+        .projects-section h2 { color: #5b108e; border-bottom: 2px solid #8a19d6; padding-bottom: 0.5rem; text-align: center; }
+        .project-box { background: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.04); border-left: 5px solid #8a19d6; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; }
+        .project-info { flex: 2; min-width: 250px; }
+        .project-box h4 { margin: 0 0 0.5rem 0; color: #8a19d6; font-size: 1.2rem; }
+        .project-box p { margin: 0; color: #555; }
+        .project-img-container { flex: 1; min-width: 150px; max-width: 250px; text-align: center; }
+        .project-img { width: 100%; height: auto; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.15); border: 1px solid #ddd; background-color: #fafafa; }
+        
+        .contact-section { background: #5b108e; color: white; padding: 2rem; border-radius: 8px; margin-top: 3rem; text-align: center; border: 1px solid #d4af37; }
+        .contact-section a { color: #f2e6ff; text-decoration: none; font-weight: bold; }
+        .btn-shop { display: inline-block; background: #8a19d6; color: white; padding: 0.8rem 1.5rem; text-align: center; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: background 0.2s; }
+        .btn-shop:hover { background: #5b108e; border: 1px solid #d4af37; }
+        footer { background: #230438; color: #d9cbe6; padding: 2rem 1rem; margin-top: 4rem; font-size: 0.9rem; border-top: 3px solid #d4af37; }
+        footer h4 { color: white; margin-top: 1.5rem; border-bottom: 1px solid #5b108e; padding-bottom: 0.5rem; }
         footer h4:first-of-type { margin-top: 0; }
         .impressum-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: left; }
-        .legal-text { line-height: 1.5; text-align: left; font-size: 0.85rem; color: #c2b4d6; }
+        .legal-text { line-height: 1.5; text-align: left; font-size: 0.85rem; color: #d9cbe6; }
         .legal-text p { margin-top: 0; margin-bottom: 1rem; }
     </style>
 </head>
@@ -66,8 +77,35 @@
             </div>
         </div>
 
-        <!-- REPARIERTER SHOP-LINK -->
-        <a href="https://plc-team-design.myspreadshop.de/" target="_blank" rel="noopener noreferrer" class="btn-shop">🛍️ Meinen Spreadshop besuchen</a>
+        <a href="myspreadshop.de" target="_blank" rel="noopener noreferrer" class="btn-shop">🛍️ Meinen Spreadshop besuchen</a>
+
+        <!-- HIER SIND IHRE PROJEKTE MIT BILDERN -->
+        <div class="projects-section">
+            <h2>PROJEKTE:</h2>
+
+            <!-- Projekt 1 -->
+            <div class="project-box">
+                <div class="project-info">
+                    <h4>Projekt 1: Technisches 3D-Bauteil</h4>
+                    <p>Beschreibung Ihres ersten Objekts. Hier können Sie Details zu Materialien, dem Einsatzzweck oder der CAD-Konstruktion eintragen.</p>
+                </div>
+                <div class="project-img-container">
+                    <img src="projekt1.jpg" alt="Projekt 1" class="project-img" onerror="this.src='placeholder.com...'">
+                </div>
+            </div>
+
+            <!-- Projekt 2 -->
+            <div class="project-box">
+                <div class="project-info">
+                    <h4>Projekt 2: Prototypen-Entwicklung</h4>
+                    <p>Beschreibung Ihres zweiten Projekts. Erklären Sie Ihren Kunden hier kurz, wie Sie von der Idee zum fertigen 3D-Modell gelangt sind.</p>
+                </div>
+                <div class="project-img-container">
+                    <img src="projekt2.jpg" alt="Projekt 2" class="project-img" onerror="this.src='placeholder.com...'">
+                </div>
+            </div>
+
+        </div>
 
         <div class="contact-section">
             <h3>Wir helfen Ihnen gerne weiter!</h3>
@@ -114,7 +152,7 @@
                 Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Datenschutz-Aufsichtsbehörde zu.</p>
             </div>
 
-            <div style="margin-top: 2rem; border-top: 1px solid #3c235c; padding-top: 1rem; text-align: center;">
+            <div style="margin-top: 2rem; border-top: 1px solid #5b108e; padding-top: 1rem; text-align: center;">
                 <p>&copy; 2026 PLC TEAM DESIGN - Bad Oeynhausen</p>
             </div>
         </div>
