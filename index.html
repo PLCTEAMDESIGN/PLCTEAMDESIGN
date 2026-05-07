@@ -9,49 +9,107 @@
     <meta name="google-site-verification" content="hXvCe_t1mEstDom0kluGGE9olJTBmsdgksjMmIZRnKs" />
     
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; background-color: #f8f5fa; }
-        header { background: linear-gradient(135deg, #5b108e, #8a19d6); color: white; padding: 2.5rem 1rem; text-align: center; border-bottom: 4px solid #d4af37; }
-        .logo-img { max-width: 300px; height: auto; display: block; margin: 0 auto 1rem auto; }
-        header p { margin: 0; font-size: 1.2rem; color: #f2e6ff; }
-        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
-        .status-badge { display: inline-block; background-color: #27ae60; color: white; padding: 0.3rem 1rem; border-radius: 20px; font-weight: bold; margin-bottom: 2rem; }
+        /* Professionelles Farbkonzept basierend auf dem Logo */
+        :root {
+            --primary-purple: #8a19d6;
+            --dark-purple: #3c096c;
+            --deep-background: #1a052e;
+            --gold-accent: #d4af37;
+            --light-bg: #fdfbfe;
+            --card-shadow: 0 10px 25px rgba(138, 25, 214, 0.08);
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #2d2d2d; background-color: #f7f4fa; scroll-behavior: smooth; }
+        
+        /* Neues Profi-Navigationsband ganz oben */
+        .top-nav { background-color: var(--deep-background); border-bottom: 2px solid var(--gold-accent); padding: 0.8rem 1rem; text-align: center; sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+        .nav-link { color: #ffffff; text-decoration: none; font-weight: 600; font-size: 1rem; transition: color 0.2s; display: flex; align-items: center; gap: 0.5rem; }
+        .nav-link:hover { color: var(--gold-accent); }
+        .nav-shop-highlight { color: #ff9f1c !important; border: 1px solid #ff9f1c; padding: 0.2rem 0.8rem; border-radius: 4px; }
+        .nav-shop-highlight:hover { background-color: #ff9f1c; color: var(--deep-background) !important; }
+
+        /* Header mit 4x größerem Logo */
+        header { background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple)); color: white; padding: 4rem 1rem 3rem 1rem; text-align: center; border-bottom: 4px solid var(--gold-accent); }
+        .logo-img { width: 100%; max-width: 650px; height: auto; display: block; margin: 0 auto 1.5rem auto; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
+        header p { margin: 0; font-size: 1.25rem; color: #f2e6ff; font-weight: 300; max-width: 700px; margin: 0 auto; }
+        
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; box-sizing: border-box; }
+        .status-badge { display: inline-block; background-color: #27ae60; color: white; padding: 0.4rem 1.2rem; border-radius: 20px; font-weight: bold; margin-bottom: 2.5rem; font-size: 0.95rem; box-shadow: 0 4px 6px rgba(39,174,96,0.2); }
+        
+        /* Leistungskarten Grid */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
-        .card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(138, 25, 214, 0.06); border-top: 4px solid #8a19d6; text-align: left; }
-        .card h3 { margin-top: 0; color: #5b108e; }
+        .card { background: white; padding: 1.8rem; border-radius: 12px; box-shadow: var(--card-shadow); border-top: 5px solid var(--primary-purple); text-align: left; transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card h3 { margin-top: 0; color: var(--dark-purple); font-size: 1.3rem; }
         .price-tag { display: inline-block; background: #d93838; color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
         .small-law { font-size: 0.8rem; color: #7f8c8d; display: block; margin-top: 0.5rem; line-height: 1.3; }
         
-        /* PROJEKT SEKTION OHNE ERKLÄRUNGSTEXT */
-        .projects-section { margin-top: 4rem; text-align: left; }
-        .projects-section h2 { color: #5b108e; border-bottom: 2px solid #8a19d6; padding-bottom: 0.5rem; text-align: center; }
-        .project-box { background: white; padding: 1rem 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.04); border-left: 5px solid #8a19d6; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; }
-        .project-info { flex: 1; }
-        .project-box h4 { margin: 0; color: #8a19d6; font-size: 1.2rem; }
-        .project-img-container { width: 120px; height: 120px; text-align: center; flex-shrink: 0; }
-        .project-img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.15); border: 1px solid #ddd; background-color: #fafafa; }
+        /* Großer zentraler Call-to-Action Shop-Button */
+        .shop-button-container { margin: 3.5rem 0; }
+        .btn-shop { display: inline-block; background: #ff9f1c; color: var(--deep-background); padding: 1rem 2.5rem; text-align: center; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 1.2rem; box-shadow: 0 6px 15px rgba(255, 159, 28, 0.3); transition: all 0.2s; border: 2px solid transparent; }
+        .btn-shop:hover { background: transparent; color: var(--primary-purple); border-color: var(--primary-purple); transform: scale(1.03); }
         
-        .contact-section { background: #5b108e; color: white; padding: 2rem; border-radius: 8px; margin-top: 3rem; text-align: center; border: 1px solid #d4af37; }
-        .contact-section a { color: #f2e6ff; text-decoration: none; font-weight: bold; }
-        .btn-shop { display: inline-block; background: #8a19d6; color: white; padding: 0.8rem 1.5rem; text-align: center; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: background 0.2s; }
-        .btn-shop:hover { background: #5b108e; border: 1px solid #d4af37; }
-        footer { background: #230438; color: #d9cbe6; padding: 2rem 1rem; margin-top: 4rem; font-size: 0.9rem; border-top: 3px solid #d4af37; }
-        footer h4 { color: white; margin-top: 1.5rem; border-bottom: 1px solid #5b108e; padding-bottom: 0.5rem; }
-        footer h4:first-of-type { margin-top: 0; }
-        .impressum-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: left; }
-        .legal-text { line-height: 1.5; text-align: left; font-size: 0.85rem; color: #d9cbe6; }
-        .legal-text p { margin-top: 0; margin-bottom: 1rem; }
+        /* NEUE PROJEKT-SEKTION: Maximale Bildwirkung */
+        .projects-section { margin-top: 5rem; text-align: center; }
+        .projects-section h2 { color: var(--dark-purple); font-size: 2rem; margin-bottom: 2rem; position: relative; padding-bottom: 0.5rem; }
+        .projects-section h2::after { content: ''; width: 60px; height: 3px; background-color: var(--gold-accent); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+        
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2.5rem; }
+        .project-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); border: 1px solid rgba(138, 25, 214, 0.1); }
+        .project-img-wrapper { width: 100%; height: 320px; overflow: hidden; background-color: #fafafa; border-bottom: 3px solid var(--primary-purple); }
+        .project-img { width: 100%; height: 100%; object-fit: contain; padding: 0.5rem; box-sizing: border-box; transition: transform 0.3s; }
+        .project-card:hover .project-img { transform: scale(1.05); }
+        .project-title { padding: 1rem; margin: 0; background-color: white; color: var(--dark-purple); font-size: 1.15rem; font-weight: 600; border-top: 1px solid #eee; }
+        
+        /* Zurück nach oben Button */
+        .btn-top { display: inline-block; background: var(--primary-purple); color: white; padding: 0.6rem 1.2rem; border-radius: 4px; text-decoration: none; font-size: 0.9rem; font-weight: bold; margin-top: 1rem; transition: background 0.2s; }
+        .btn-top:hover { background: var(--dark-purple); }
+
+        .contact-section { background: var(--dark-purple); color: white; padding: 2.5rem; border-radius: 12px; margin-top: 4rem; text-align: center; border: 1px solid var(--gold-accent); box-shadow: var(--card-shadow); }
+        .contact-section a { color: #ffffff; text-decoration: underline; font-weight: bold; }
+        
+        /* RECHTLICHER BEREICH: Professionelles Aufklapp-System (Akkordeon) */
+        footer { background: var(--deep-background); color: #c2b4d6; padding: 3rem 1rem; margin-top: 5rem; border-top: 4px solid var(--gold-accent); }
+        .footer-container { max-width: 800px; margin: 0 auto; text-align: left; }
+        
+        .accordion-item { border-bottom: 1px solid #3c1963; margin-bottom: 0.5rem; }
+        .accordion-trigger { width: 100%; background: none; border: none; text-align: left; color: #ffffff; font-size: 1.1rem; font-weight: 600; padding: 1rem 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: color 0.2s; }
+        .accordion-trigger:hover { color: var(--gold-accent); }
+        .accordion-trigger::after { content: '➔'; font-size: 0.9rem; transition: transform 0.3s; color: var(--gold-accent); }
+        
+        /* Versteckter Inhalt, der sich auf Klick öffnet */
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; padding-right: 1rem; }
+        .legal-text { line-height: 1.6; font-size: 0.9rem; color: #c2b4d6; padding-bottom: 1.5rem; }
+        .legal-text p { margin: 0 0 1rem 0; }
+        
+        /* Kontroll-Klassen für aktiven Zustand via JavaScript */
+        .accordion-item.active .accordion-content { max-height: 1200px; transition: max-height 0.5s ease-in; }
+        .accordion-item.active .accordion-trigger::after { transform: rotate(90deg); }
     </style>
 </head>
 <body>
 
+    <!-- Navigationsband ganz oben -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="https://plc-team-design.myspreadshop.de/" target="_blank" rel="noopener noreferrer" class="nav-link nav-shop-highlight">🛍️ PLC Team Design Shop</a>
+            <a href="#leistungen" class="nav-link">📋 Leistungen</a>
+            <a href="#projekte" class="nav-link">🛠️ Projekte</a>
+            <a href="#kontakt" class="nav-link">✉️ Kontakt</a>
+        </div>
+    </nav>
+
     <header>
-        <!-- LOGO ALS PNG INTEGRATION -->
-        <img src="logo.png" alt="PLC Team Design Logo" class="logo-img">
+        <!-- 4x GRÖSSERES LOGO-PNG -->
+        <img src="logo.png" alt="PLC TEAM DESIGN Logo" class="logo-img">
         <p>✨ Design mit Leidenschaft und Herzblut – Wir sind Ihr Partner für technische Produkte & 3D-Objekte! 💫</p>
     </header>
 
-    <div class="container" style="text-align: center;">
-        <div class="status-badge">Status: Aktuell erreichbar</div>
+    <div id="leistungen" class="container">
+        <div style="text-align: center;">
+            <div class="status-badge">Status: Aktuell erreichbar</div>
+        </div>
         
         <div class="grid">
             <div class="card">
@@ -66,7 +124,7 @@
                 <h3>Beratung & Begleitung</h3>
                 <p>Unterstützung bei der regionalen Produktion (ökologischer Fußabdruck) oder weltweiten Umsetzung.</p>
             </div>
-            <div class="card" style="border-top-color: #d4af37;">
+            <div class="card" style="border-top-color: var(--gold-accent);">
                 <h3>Webdesign <span class="price-tag">100 €</span></h3>
                 <p>Kostengünstige Erstellung Ihrer Website auf Basis vorhandener Dokumente. Dauer der Implementierung & Betreuung: ca. ein Monat. Logo-Design auf Anfrage.</p>
                 <span class="small-law">* Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerstatus).</span>
@@ -77,84 +135,98 @@
             </div>
         </div>
 
-        <a href="myspreadshop.de" target="_blank" rel="noopener noreferrer" class="btn-shop">🛍️ Meinen Spreadshop besuchen</a>
-
-        <!-- PROJEKTE OHNE TEXT -->
-        <div class="projects-section">
-            <h2>PROJEKTE:</h2>
-
-            <!-- Projekt 1 -->
-            <div class="project-box">
-                <div class="project-info">
-                    <h4>Projekt 1: Technisches 3D-Bauteil</h4>
-                </div>
-                <div class="project-img-container">
-                    <img src="projekt1.jpg" alt="Projekt 1" class="project-img">
-                </div>
-            </div>
-
-            <!-- Projekt 2 -->
-            <div class="project-box">
-                <div class="project-info">
-                    <h4>Projekt 2: Prototypen-Entwicklung</h4>
-                </div>
-                <div class="project-img-container">
-                    <img src="projekt2.jpg" alt="Projekt 2" class="project-img">
-                </div>
-            </div>
-
+        <!-- ZENTRALER REPARIERTER SPREADSHOP LINK-BUTTON -->
+        <div class="shop-button-container" style="text-align: center;">
+            <a href="https://plc-team-design.myspreadshop.de/" target="_blank" rel="noopener noreferrer" class="btn-shop">🛍️ Meinen Spreadshop besuchen</a>
         </div>
 
-        <div class="contact-section">
+        <!-- PROJEKTE SEKTION MIT GROSSEN BILDERN UND OHNE ERKLÄRUNGTEXT -->
+        <div id="projekte" class="projects-section">
+            <h2>PROJEKTE</h2>
+
+            <div class="project-grid">
+                <!-- Projekt 1 -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="projekt1.jpg" alt="Projekt 1" class="project-img" onerror="this.style.display='none'">
+                    </div>
+                    <div class="project-title">Projekt 1: Technisches 3D-Bauteil</div>
+                </div>
+
+                <!-- Projekt 2 -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="projekt2.jpg" alt="Projekt 2" class="project-img" onerror="this.style.display='none'">
+                    </div>
+                    <div class="project-title">Projekt 2: Prototypen-Entwicklung</div>
+                </div>
+            </div>
+
+            <!-- Tastfeld um nach oben zurückzukehren -->
+            <a href="#" class="btn-top">▲ Nach oben</a>
+        </div>
+
+        <div id="kontakt" class="contact-section">
             <h3>Wir helfen Ihnen gerne weiter!</h3>
             <p>Kontaktieren Sie uns bevorzugt per E-Mail:</p>
-            <p><a href="mailto:plctede@gmail.com" style="font-size: 1.3rem; color: #fff; text-decoration: underline;">plctede@gmail.com</a></p>
+            <p><a href="mailto:plctede@gmail.com" style="font-size: 1.3rem;">plctede@gmail.com</a></p>
         </div>
     </div>
 
+    <!-- RECHTLICHER FOOTER MIT PROFESSIONELLEM AUFKLAPP-EFFEKT (AKKORDEON) -->
     <footer>
-        <div class="container">
-            <h4>Impressum</h4>
-            <div class="impressum-grid">
-                <div class="legal-text">
-                    <strong>PLC Team Design</strong><br>
-                    Geschäftsführer & Ansprechpartner:<br>
-                    Pedro Lereno Cordeiro<br>
-                    (Maschinenbau-Techniker)<br><br>
-                    Rastenburger Str. 11<br>
-                    32545 Bad Oeynhausen
-                </div>
-                <div class="legal-text">
-                    <strong>Contact:</strong><br>
-                    Tel.: 05731 9829839<br>
-                    E-Mail: plctede@gmail.com<br><br>
-                    <strong>Umsatzsteuer-ID:</strong><br>
-                    Ust-IdNr.: DE 352501723
-                </div>
-                <div class="legal-text">
-                    <strong>Verantwortlich für den Inhalt</strong><br>
-                    gemäß § 18 Abs. 2 MStV:<br>
-                    Pedro Lereno Cordeiro
+        <div class="footer-container">
+            
+            <!-- Trennlinie & Impressum Trigger -->
+            <div class="accordion-item">
+                <button class="accordion-trigger" onclick="toggleAccordion(this)">Impressum</button>
+                <div class="accordion-content">
+                    <div class="legal-text">
+                        <strong>PLC Team Design</strong><br>
+                        Geschäftsführer & Ansprechpartner:<br>
+                        Pedro Lereno Cordeiro (Maschinenbau-Techniker)<br><br>
+                        Rastenburger Str. 11<br>
+                        32545 Bad Oeynhausen<br><br>
+                        Tel.: 05731 9829839<br>
+                        E-Mail: plctede@gmail.com<br><br>
+                        <strong>Umsatzsteuer-ID:</strong><br>
+                        Ust-IdNr.: DE 352501723<br><br>
+                        <strong>Verantwortlich für den Inhalt gemäß § 18 Abs. 2 MStV:</strong><br>
+                        Pedro Lereno Cordeiro
+                    </div>
                 </div>
             </div>
 
-            <h4>Datenschutzerklärung</h4>
-            <div class="legal-text">
-                <p><strong>1. Allgemeine Hinweise und Pflichtinformationen</strong><br>
-                Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften (DSGVO) sowie dieser Datenschutzerklärung. Wenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben (z.B. Ihre IP-Adresse durch den Hosting-Anbieter GitHub Pages). Die Nutzung dieser Webseite ist ohne aktive Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder E-Mail-Adressen bei einer Kontaktaufnahme) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis.</p>
-                
-                <p><strong>2. Datenerfassung auf unserer Website (Server-Log-Dateien)</strong><br>
-                Die Datenverarbeitung auf dieser Website erfolgt technisch zwingend durch den Infrastruktur-Anbieter GitHub Inc. (USA). GitHub erfasst automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch übermittelt. Dies sind: Browsertyp und Browserversion, verwendetes Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage und die IP-Adresse. Diese Daten sind für die Bereitstellung und den sicheren Betrieb der Webseite technisch notwendig und werden nicht mit anderen Datenquellen zusammengeführt.</p>
-                
-                <p><strong>3. Ihre Rechte (Auskunft, Löschung, Sperrung)</strong><br>
-                Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Datenschutz-Aufsichtsbehörde zu.</p>
+            <!-- Trennlinie & Datenschutz Trigger -->
+            <div class="accordion-item">
+                <button class="accordion-trigger" onclick="toggleAccordion(this)">Datenschutzerklärung</button>
+                <div class="accordion-content">
+                    <div class="legal-text">
+                        <p><strong>1. Allgemeine Hinweise und Pflichtinformationen</strong><br>
+                        Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften (DSGVO). Wenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben (z.B. Ihre IP-Adresse durch den Hosting-Anbieter GitHub Pages).</p>
+                        
+                        <p><strong>2. Datenerfassung auf unserer Website (Server-Log-Dateien)</strong><br>
+                        Die Datenverarbeitung auf dieser Website erfolgt technisch zwingend durch den Infrastruktur-Anbieter GitHub Inc. (USA). GitHub erfasst automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch übermittelt. Diese Daten sind für die Bereitstellung und den sicheren Betrieb der Webseite technisch notwendig.</p>
+                        
+                        <p><strong>3. Ihre Rechte (Auskunft, Löschung, Sperrung)</strong><br>
+                        Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen.</p>
+                    </div>
+                </div>
             </div>
 
-            <div style="margin-top: 2rem; border-top: 1px solid #5b108e; padding-top: 1rem; text-align: center;">
+            <div style="margin-top: 3rem; border-top: 1px solid #3c1963; padding-top: 1rem; text-align: center; font-size: 0.8rem; color: #8a73a6;">
                 <p>&copy; 2026 PLC TEAM DESIGN - Bad Oeynhausen</p>
             </div>
         </div>
     </footer>
+
+    <!-- Kleines Skript für das Aufklappen der Menüs -->
+    <script>
+        function toggleAccordion(element) {
+            const item = element.parentElement;
+            item.classList.toggle('active');
+        }
+    </script>
 
 </body>
 </html>
