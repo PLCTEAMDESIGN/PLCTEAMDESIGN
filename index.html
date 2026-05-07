@@ -31,7 +31,7 @@
             display: flex;
         }
         
-        /* SEITENLEISTE LINKS */
+        /* 1. SEITENLEISTE LINKS */
         .sidebar-nav {
             width: 250px;
             height: 100vh;
@@ -79,8 +79,9 @@
             color: #ffffff;
         }
         
+        /* Shop-Link: 2 Zeilen unter der Liste */
         .sidebar-shop {
-            margin-top: 1.5rem;
+            margin-top: 2rem;
             background-color: #ffffff;
             display: flex;
             flex-direction: column;
@@ -111,12 +112,13 @@
             color: #ffffff;
         }
 
-        /* RECHTER HAUPTBEREICH */
+        /* 2. RECHTER HAUPTBEREICH */
         .main-content {
             margin-left: 250px;
             flex: 1;
             box-sizing: border-box;
             min-width: 0;
+            overflow-x: hidden;
         }
 
         /* HEADER */
@@ -137,11 +139,8 @@
             display: block; 
             margin: 0 auto 2rem auto; 
             background: transparent;
-            filter: drop-shadow(3px 0px 0px #ffffff) 
-                    drop-shadow(-3px 0px 0px #ffffff) 
-                    drop-shadow(0px 3px 0px #ffffff) 
-                    drop-shadow(0px -3px 0px #ffffff)
-                    drop-shadow(0px 6px 12px rgba(0,0,0,0.25));
+            border: 3px solid #ffffff; /* 3px weißer Rand */
+            filter: drop-shadow(0px 6px 12px rgba(0,0,0,0.25));
         }
         
         header p { font-size: 1.4rem; color: #ffffff; font-weight: 600; max-width: 800px; margin: 0 auto; line-height: 1.5; }
@@ -149,37 +148,39 @@
         .container { max-width: 1100px; margin: 4rem auto; padding: 0 2rem; box-sizing: border-box; }
         
         /* Design Dienstleistungen */
-        .section-title { font-size: 2.5rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.5rem; text-align: left; }
+        .section-title { font-size: 2.5rem; font-weight: 800; color: var(--primary-purple); margin-bottom: 0.5rem; text-align: left; }
         .section-subtitle { font-size: 1.2rem; color: #555555; margin-bottom: 3rem; text-align: left; }
 
         .horizontal-scroll-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; text-align: left; }
         
-        .koerber-card { background: #f9f9f9; border-radius: 4px; overflow: hidden; box-shadow: var(--card-shadow); transition: all 0.3s ease; display: flex; flex-direction: column; min-height: 220px; border-top: 4px solid var(--primary-purple); }
+        .koerber-card { background: #f9f9f9; border-radius: 4px; overflow: hidden; box-shadow: var(--card-shadow); transition: all 0.3s ease; display: flex; flex-direction: column; min-height: 250px; border-top: 4px solid var(--primary-purple); }
         .koerber-card:hover { transform: translateY(-5px); border-top-color: var(--gold-accent); }
         
         .card-content { padding: 1.5rem; display: flex; flex-direction: column; height: 100%; }
-        .koerber-card h3 { font-size: 1.3rem; font-weight: 700; color: var(--text-dark); margin-top: 0; margin-bottom: 0.8rem; }
+        .koerber-card h3 { font-size: 1.3rem; font-weight: 700; color: var(--dark-purple); margin-top: 0; margin-bottom: 0.8rem; }
         .koerber-card p { font-size: 0.95rem; color: #444444; margin: 0; line-height: 1.5; }
-
-        /* Webdesign */
-        .webdesign-featured { background: linear-gradient(135deg, #fbf9fe, #f5e6ff); border-left: 6px solid var(--primary-purple); padding: 2.5rem; border-radius: 4px; margin: 4rem 0; text-align: left; box-shadow: var(--card-shadow); }
-        .webdesign-featured h3 { margin-top: 0; font-size: 2rem; color: var(--dark-purple); font-weight: 800; }
+        
         .price-badge { background: #d93838; color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-weight: bold; font-size: 1.1rem; margin-left: 1rem; display: inline-block; vertical-align: middle; }
 
         /* Projekte */
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
         .project-card { background: #ffffff; border: 1px solid #eeeeee; border-radius: 4px; overflow: hidden; box-shadow: var(--card-shadow); transition: transform 0.3s; }
         .project-card:hover { transform: scale(1.02); }
-        .project-img-wrapper { width: 100%; height: 250px; overflow: hidden; }
+        
+        /* WICHTIG: Erlaubt dem Bild das Verlassen der Box für die Animation */
+        .project-img-wrapper { width: 100%; height: 250px; overflow: visible; position: relative; }
         .project-img { width: 100%; height: 100%; object-fit: contain; padding: 0.5rem; box-sizing: border-box; }
         
-        /* ANIMATION FÜR PROJEKT 1 (Gegen den Uhrzeigersinn) */
-        @keyframes rotate-ccw {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(-360deg); }
+        /* ANIMATION FÜR PROJEKT 1 (Kontinuierlicher Durchlauf von der Mitte aus) */
+        @keyframes slide-ltr {
+            0% { transform: translateX(0); }
+            45% { transform: translateX(120vw); opacity: 1; }
+            46% { transform: translateX(-100vw); opacity: 0; }
+            47% { opacity: 1; }
+            100% { transform: translateX(0); }
         }
-        .rotate-animation {
-            animation: rotate-ccw 10s linear infinite;
+        .slide-animation {
+            animation: slide-ltr 15s linear infinite;
         }
         
         .project-title { padding: 1rem; margin: 0; font-size: 1rem; font-weight: 600; color: var(--text-dark); border-top: 1px solid #f0f0f0; background: #fafafa; }
@@ -204,6 +205,7 @@
             .section-title { font-size: 2rem; }
             .horizontal-scroll-grid { grid-template-columns: 1fr; }
             .project-grid { grid-template-columns: 1fr; }
+            .slide-animation { animation: none; /* Deaktiviert auf Mobilgeräten für bessere Bedienung */ }
         }
     </style>
 </head>
@@ -236,8 +238,8 @@
             
             <!-- Leistungen -->
             <div id="leistungen">
-                <h2 class="section-title">Design Dienstleistungen</h2>
-                <p class="section-subtitle">Entdecken Sie unsere ganzheitlichen, integrierten Lösungen für Ihre technischen 3D-Projekte.</p>
+                <h2 class="section-title">Wir designen mit Leidenschaft</h2>
+                <p class="section-subtitle">Unser Versprechen: Wir designen für Sie.</p>
                 
                 <div class="horizontal-scroll-grid">
                     <div class="koerber-card">
@@ -258,19 +260,14 @@
                             <p>Begleitung & Beratung für regionale Produktion (Ökologischer Fußabdruck) oder weltweit.</p>
                         </div>
                     </div>
+                    <!-- Webdesign als 4. Kachel integriert -->
                     <div class="koerber-card">
                         <div class="card-content">
-                            <h3>Technische Analyse</h3>
-                            <p>Sie benötigen weitere Lösungen für Wiederherstellungen, Reparaturen der 3D-Körper von Bauteilen, Baugruppen und die anschließenden FEM-Analysen mit Simulationsberechnungen?</p>
+                            <h3>Webdesign <span class="price-badge">100 €</span></h3>
+                            <p>Unternehmen & Start-ups bei der kostengünstigen Erstellung ihrer Website mit vorhandenen Dokumenten für 100 €. Die Dauer der Implementierung & Betreuung beträgt ca. einen Monat. Wunsch-Logo wird zusätzlich berechnet.</p>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Webdesign -->
-            <div class="webdesign-featured">
-                <h3>Webdesign für Unternehmen & Start-ups <span class="price-badge">100 €</span></h3>
-                <p>Unternehmen & Start-ups bei der kostengünstigen Erstellung ihrer Website mit vorhandenen Dokumenten für 100 €. Die Dauer der Implementierung & Betreuung beträgt ca. einen Monat. Wunsch-Logo wird zusätzlich berechnet.</p>
             </div>
 
             <!-- Projekte -->
@@ -279,14 +276,14 @@
                 <p class="section-subtitle">Ein Auszug unserer fortlaufenden Konstruktions- und Designarbeiten.</p>
 
                 <div class="project-grid">
-                    <!-- Projekt 1 mit Rotation -->
+                    <!-- Projekt 1 mit Lauf-Animation -->
                     <div class="project-card">
                         <div class="project-img-wrapper">
-                            <img src="projekt1.jpg" alt="Projekt 1" class="project-img rotate-animation" onerror="this.style.display='none'">
+                            <img src="projekt1.jpg" alt="Projekt 1" class="project-img slide-animation" onerror="this.style.display='none'">
                         </div>
                         <div class="project-title">Projekt 1: Technisches 3D-Bauteil</div>
                     </div>
-                    <!-- Restliche Projekte bleiben statisch -->
+                    <!-- Restliche Projekte bleiben normal -->
                     <div class="project-card">
                         <div class="project-img-wrapper">
                             <img src="projekt2.jpg" alt="Projekt 2" class="project-img" onerror="this.style.display='none'">
