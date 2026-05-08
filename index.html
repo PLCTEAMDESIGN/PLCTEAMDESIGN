@@ -52,7 +52,6 @@
         
         .container { max-width: 1100px; margin: 4rem auto; padding: 0 2rem; box-sizing: border-box; }
         
-        /* TEXT IN LILA EINGEFÄRBT */
         .section-title { 
             font-size: 2.5rem;
             font-weight: 800; 
@@ -93,34 +92,57 @@
         
         .price-badge { background: #d93838; color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: bold; font-size: 1rem; }
 
-        /* PROJEKTE & ANIMATION */
+        /* PROJEKTE & SPEZIAL-ANIMATION FÜR NR. 1 */
         .projects-section { margin-top: 5rem; text-align: left; }
+        
         .project-featured {
             width: 100%;
             text-align: center;
             margin-bottom: 3rem;
-            padding: 2rem;
+            padding: 2rem 0;
             background: transparent;
             box-sizing: border-box;
-        }
-        .project-featured-img-wrapper {
-            width: 300px;
-            height: 300px;
-            margin: 0 auto;
-            overflow: visible;
             position: relative;
+            /* Schneidet das Bild ab, wenn es die Containerbox verlässt */
+            overflow: hidden; 
+            height: 350px;
         }
+        
+        /* Der Wrapper bewegt sich über die gesamte Breite */
+        .project-featured-img-wrapper {
+            width: 250px;
+            height: 250px;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: infinite-pass-through 12s linear infinite;
+        }
+        
+        /* Das Bild dreht sich IM Wrapper gegen den Uhrzeigersinn */
         .project-featured-img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            animation: rotate-ccw 10s linear infinite;
         }
+        
+        /* Animation 1: Drehung gegen den Uhrzeigersinn */
         @keyframes rotate-ccw {
             from { transform: rotate(0deg); }
             to { transform: rotate(-360deg); }
         }
-        .rotate-animation {
-            animation: rotate-ccw 12s linear infinite;
+        
+        /* Animation 2: Endloser Durchlauf von links nach rechts mit Portal-Effekt */
+        @keyframes infinite-pass-through {
+            0% {
+                left: -250px; /* Startet komplett außerhalb links */
+            }
+            100% {
+                left: 100%; /* Wandert nach rechts und verschwindet im Kasten */
+            }
         }
 
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
@@ -154,7 +176,9 @@
             .sidebar-link { margin-bottom: 0.8rem; text-align: center; }
             .main-content { margin-left: 0; }
             .section-title { font-size: 2rem; }
-            .project-featured-img-wrapper { width: 200px; height: 200px; }
+            /* Auf Handys wird das Wandern deaktiviert, da es die Wischgesten stört */
+            .project-featured-img-wrapper { animation: none; position: relative; margin: 0 auto; top: 0; left: auto; }
+            .project-featured { height: auto; overflow: visible; }
         }
     </style>
 </head>
@@ -184,10 +208,8 @@
             
             <!-- Leistungen -->
             <div id="leistungen">
-                <!-- DER TEXT IN LILA MIT EMOJIS AM ENDE -->
                 <h2 class="section-title">Design mit Leidenschaft und Herzblut – Wir sind Ihr Partner für technische Produkte & 3D-Objekte! ⭐🌀</h2>
-                <!-- PROFESSIONELLE UND RECHTSSICHERE ERKLÄRUNG IHRER TÄTIGKEIT -->
-                <p class="section-subtitle">Von der ersten Idee über die präzise 3D-Modellierung bis hin zur fertigen Produktionsbegleitung.</p>
+                <p class="section-subtitle">Design-Dienstleistungen ohne Gewährleistung für gesetzliche Vorgaben oder Haftungsansprüche.</p>
                 
                 <div class="horizontal-scroll-grid">
                     <div class="koerber-card">
@@ -218,10 +240,13 @@
                 <h2 class="section-title">Projekte</h2>
                 <p class="section-subtitle">Ein Auszug unserer fortlaufenden Konstruktions- und Designarbeiten.</p>
 
+                <!-- PROJEKT 1: DER "EYECATCHER" MIT PORTAL-EFFEKT -->
                 <div class="project-featured">
                     <div class="project-featured-img-wrapper">
-                        <img src="projekt1.jpg" alt="Projekt 1" class="project-featured-img rotate-animation" onerror="this.style.display='none'">
+                        <!-- Dreht sich und wandert im Code gesteuert -->
+                        <img src="projekt1.jpg" alt="Projekt 1" class="project-featured-img" onerror="this.style.display='none'">
                     </div>
+                    <div style="margin-top: 1.5rem; font-weight: 700; color: var(--text-dark); text-align: center;">Nr. 1: Technisches 3D-Bauteil</div>
                 </div>
 
                 <div class="project-grid">
