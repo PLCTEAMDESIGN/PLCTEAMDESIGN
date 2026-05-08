@@ -227,7 +227,7 @@
             transition: color 0.3s ease;
         } 
         
-        /* PROJEKTE & EINZELNE SCHNELLE ANIMATION */ 
+        /* PROJEKTE & LAUFBAND-ANIMATION (ZWEI BILDER FÜR NAHTLOSEN ÜBERGANG) */ 
         .projects-section { 
             margin-top: 5rem; 
             text-align: left; 
@@ -253,10 +253,15 @@
             display: flex; 
             justify-content: center; 
             align-items: center; 
-            /* Zeit auf 6s verkürzt für schnellen Durchlauf ohne Ruckeln */
-            animation: single-pass 6s linear infinite; 
+            /* Zeit auf 12s für einen flüssigen Durchlauf beider Bilder */
+            animation: seamless-pass 12s linear infinite; 
         } 
         
+        /* Das zweite Bild läuft exakt zeitversetzt um die Hälfte der Animationsdauer */
+        .project-featured-img-wrapper.second {
+            animation-delay: -6s;
+        }
+
         .project-featured-img { 
             width: 100%; 
             height: 100%; 
@@ -270,7 +275,7 @@
         } 
         
         /* Startet außerhalb links und fährt bis außerhalb rechts durch */
-        @keyframes single-pass { 
+        @keyframes seamless-pass { 
             0% { transform: translateX(-250px); } 
             100% { transform: translateX(1100px); } 
         } 
@@ -322,6 +327,7 @@
         @media (max-width: 768px) { 
             .project-featured { height: auto; overflow: visible; display: block; }
             .project-featured-img-wrapper { animation: none; position: relative; margin: 0 auto; top: 0; left: auto; } 
+            .project-featured-img-wrapper.second { display: none; } /* Auf Handys reicht ein Bild */
         } 
         
         /* 4. KONTAKT & RECHTLICHES IMPRESSUM */ 
@@ -443,12 +449,16 @@
                 </div>
             </div>
 
-            <!-- PROJEKTE (NUR EIN BILD FÜR SCHNELLEN DURCHLAUF) -->
+            <!-- PROJEKTE (ZWEI BILDER FÜR LÜCKENLOSEN DURCHLAUF) -->
             <div id="projekte" class="projects-section">
                 <h2 class="section-title">Unsere Projekte</h2>
                 
                 <div class="project-featured">
                     <div class="project-featured-img-wrapper">
+                        <img src="projekt1.jpg" alt="Zahnrad Konstruktion" class="project-featured-img">
+                    </div>
+                    <!-- Das zweite Bild fängt das erste Bild lückenlos ab -->
+                    <div class="project-featured-img-wrapper second">
                         <img src="projekt1.jpg" alt="Zahnrad Konstruktion" class="project-featured-img">
                     </div>
                 </div>
