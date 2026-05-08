@@ -9,7 +9,7 @@
     <meta name="google-site-verification" content="hXvCe_t1mEstDom0kluGGE9olJTBmsdgksjMmIZRnKs" /> 
     
     <style> 
-        /* 1. GLOBALE ABSICHERUNG (WASSERDICHT GEGEN PIXEL-VERSCHIEBUNGEN) */
+        /* 1. GLOBALE ABSICHERUNG GEGEN VERSCHIEBUNGEN */
         * {
             box-sizing: border-box !important;
         }
@@ -53,32 +53,31 @@
             z-index: 1000; 
         } 
         
-        /* LOGO-SHOP KASTEN: Starr auf 218px x 130px fixiert mit 6px Goldrand */
+        /* LOGO-SHOP KASTEN: Starr auf 218px x 130px mit 6px Goldrand */
         .logo-box {
             background: #ffffff !important;
-            padding: 1rem 0.5rem !important; 
+            padding: 0.5px !important; /* Erzeugt den geforderten 0.5px Abstand des Logos zum Rand */
             margin-bottom: 1.5rem !important;
-            border: 6px solid var(--gold-accent) !important; /* Dicker Goldrand bleibt erhalten */
-            outline: 0.5px solid #ffffff !important; /* Erzeugt den geforderten 0.5px Abstand zum Rand */
-            outline-offset: -6px !important;
+            border: 6px solid var(--gold-accent) !important; 
             border-radius: 4px !important;
             display: flex !important;
             flex-direction: column !important; 
             align-items: center !important; 
-            justify-content: center !important; 
+            justify-content: space-between !important; 
             width: 218px !important; 
             height: 130px !important; 
             box-sizing: border-box !important;
             cursor: pointer;
         }
 
-        /* LOGO-KALKULATION: Passt sich an die Box an */
+        /* LOGO-FLEXIBILITÄT: Schmiegt sich nun bis auf 0.5px an den Goldrand an */
         .sidebar-logo {
             width: 100% !important;
-            max-width: 160px !important; 
+            max-width: 100% !important; /* Nimmt die volle verfügbare Breite bis zum 0.5px-Abstand ein */
             height: auto !important;
             display: block !important;
-            margin: 0 auto 0.5rem auto !important; 
+            margin: 0 auto !important; 
+            object-fit: contain !important; /* Verhindert das Verzerren des Bildes */
         }
 
         /* Container für + und Shop */
@@ -89,7 +88,7 @@
             justify-content: center !important;
             height: 40px !important; 
             width: 100% !important;
-            margin-top: 0.3rem !important;
+            margin-bottom: 0.2rem !important;
         }
 
         .shop-plus {
@@ -110,7 +109,7 @@
             text-transform: uppercase !important;
         }
 
-        /* BUTTONS IM LINKEN RAND: Starr auf 218px x 52px fixiert mit 6px Goldrand */
+        /* BUTTONS IM LINKEN RAND */
         .sidebar-nav a.nav-btn {
             display: flex !important;
             align-items: center !important;
@@ -121,7 +120,7 @@
             color: var(--text-dark) !important;
             text-decoration: none !important;
             font-weight: bold !important;
-            border: 6px solid var(--gold-accent) !important; /* Dicker Goldrand bleibt erhalten */
+            border: 6px solid var(--gold-accent) !important; 
             border-radius: 4px !important;
             font-size: 1.1rem !important; 
             margin-bottom: 1rem !important;
@@ -334,23 +333,6 @@
             .project-featured-img-wrapper { animation: none; position: relative; margin: 0 auto; top: 0; left: auto; } 
         } 
         
-        .contact-section { 
-            background: var(--dark-purple); 
-            color: white; 
-            padding: 3rem 2.5rem; 
-            border-radius: 4px; 
-            margin-top: 6rem; 
-            text-align: left; 
-            border-left: 6px solid var(--gold-accent); 
-        } 
-        
-        .contact-section, .contact-section a { 
-            color: #ffffff !important; 
-            text-decoration: underline; 
-            font-weight: bold; 
-        } 
-        .contact-section h3 { margin-top: 0; text-decoration: none; }
-        
         footer { 
             background: var(--deep-background); 
             color: #c2b4d6; 
@@ -406,7 +388,7 @@
 
     <!-- SEITENLEISTE --> 
     <div class="sidebar-nav">
-        <!-- Logo-Shop Kasten (Starr auf 218px x 130px) mit integriertem 0.5px Abstand -->
+        <!-- Logo-Shop Kasten (Logo dehnt sich nun bis auf 0.5px an den Rand aus) -->
         <div class="logo-box" onclick="location.href='#shop'">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
             <div class="shop-text-wrapper">
@@ -431,7 +413,6 @@
             <h2 class="section-title">&#x2728; &bdquo;Designen mit Leidenschaft und Herzblut f&uuml;r technische Produkte &amp; 3D-Objekte sind wir da!&ldquo; &#x1F4AB;</h2>
             <p class="section-subtitle">Wir begleiten Sie von der ersten Skizze &uuml;ber das kreative Grafikdesign bis hin zur pr&auml;zisen 3D-Konstruktion. Als engagierter Partner f&uuml;r Unternehmen und Start-ups entwickeln wir technische Produkte und 3D-Objekte mit hohem Qualit&auml;tsanspruch &ndash; zuverl&auml;ssig, nah am Kunden und l&ouml;sungsorientiert.</p>
 
-            <!-- DIENSTLEISTUNGEN -->
             <div id="leistungen" class="horizontal-scroll-grid">
                 <div class="koerber-card">
                     <h3>Wunschdesign</h3>
@@ -455,7 +436,6 @@
                 </div>
             </div>
 
-            <!-- PROJEKTE -->
             <div id="projekte" class="projects-section">
                 <h2 class="section-title">Unsere Projekte</h2>
                 
@@ -493,7 +473,6 @@
                 </div>
             </div>
 
-            <!-- KONTAKT -->
             <div id="contact" class="contact-section">
                 <h3>Wir helfen Ihnen gerne weiter!</h3>
                 <p style="text-decoration: none; font-weight: normal;">Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a></p>
@@ -502,7 +481,6 @@
 
         </div>
 
-        <!-- FOOTER -->
         <footer>
             <div class="footer-container">
                 <div class="accordion-item">
