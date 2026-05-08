@@ -37,10 +37,10 @@
             padding: 1.5rem 1rem; box-sizing: border-box; z-index: 1000;
         }
         
-        /* SHOP-KASTEN JETZT GANZ OBEN */
+        /* SHOP-KASTEN GANZ OBEN MIT TRANSPARENT-FILTER */
         .sidebar-shop {
             margin-bottom: 2.5rem; 
-            background-color: #ffffff;
+            background-color: transparent; /* Standardmäßig transparent */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -52,6 +52,7 @@
             transition: all 0.3s ease;
         }
         
+        /* Schaltet den weißen Hintergrund des Bildes per Software aus */
         .sidebar-shop img { 
             width: 100%; 
             max-width: 180px; 
@@ -59,6 +60,7 @@
             display: block;
             margin-bottom: 0.5rem; 
             background-color: transparent;
+            mix-blend-mode: multiply; /* Blendet das Weiß des Bildes aus */
         }
         
         .shop-text-container {
@@ -78,8 +80,9 @@
             margin: 0.2rem 0;
         }
         
+        /* HOVER: Bei Berührung färbt sich die Fläche lila */
         .sidebar-shop:hover { 
-            background-color: var(--hover-soft);
+            background-color: var(--dark-purple);
         }
         
         /* MENÜLINKS DARUNTER */
@@ -205,10 +208,10 @@
 </head>
 <body>
 
-    <!-- SEITENLEISTE MIT DEM SHOP-KASTEN GANZ OBEN -->
+    <!-- SEITENLEISTE -->
     <div class="sidebar-nav">
         
-        <!-- Der Shop-Kasten steht jetzt an oberster Stelle -->
+        <!-- Shop-Kachel ganz oben -->
         <a href="myspreadshop.de" target="_blank" rel="noopener noreferrer" class="sidebar-shop">
             <img src="shop-logo.png" alt="Shop" onerror="this.style.display='none'">
             <div class="shop-text-container">
@@ -218,7 +221,7 @@
             </div>
         </a>
         
-        <!-- Die restlichen Menülinks folgen darunter -->
+        <!-- Menülinks darunter -->
         <a href="#leistungen" class="sidebar-link">Leistungen</a>
         <a href="#projekte" class="sidebar-link">Projekte</a>
         <a href="#kontakt" class="sidebar-link">Contact</a>
@@ -287,7 +290,7 @@
                         <div class="project-img-wrapper">
                             <img src="projekt3.jpg" alt="Projekt 3" class="project-img" onerror="this.style.display='none'">
                         </div>
-                        <div class="project-title">Projekt 3: 3D-Constructio</div>
+                        <div class="project-title">Projekt 3: 3D-Konstruktion</div>
                     </div>
                     <div class="project-card">
                         <div class="project-img-wrapper">
@@ -298,7 +301,6 @@
                 </div>
             </div>
 
-            <!-- Kontakt -->
             <div id="kontakt" class="contact-section">
                 <h3>Gemeinsam Projekte realisieren</h3>
                 <p>Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com" style="font-size: 1.4rem;">plctede@gmail.com</a></p>
@@ -312,11 +314,5 @@
         </footer>
     </div>
 
-    <script>
-        function toggleAccordion(element) {
-            const item = element.parentElement;
-            item.classList.toggle('active');
-        }
-    </script>
 </body>
 </html>
