@@ -18,6 +18,8 @@
             --text-dark: #111111;
             --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             --hover-soft: #f5f0fa;
+            /* EXAKTER FARBTON IHRES LOGO-HINTERGRUNDS */
+            --header-logo-bg: #441054; 
         }
 
         /* 1. GESPERRTER BEREICH: GRUNDLAYOUT PC & HANDY */
@@ -44,160 +46,53 @@
             .main-content { margin-left: 0; }
             .section-title { font-size: 2rem; }
         }
-        /* GESPERRTER BEREICH ENDE */
 
-        /* 2. HEADER & BANNER (KORRIGIERT AUF EINHEITLICHES LILA) */
+        /* 2. HEADER & BANNER MIT EXAKTER FARBANPASSUNG */
         header { 
-            background: var(--dark-purple); /* Flaches Dunkellila statt Verlauf */
+            background-color: var(--header-logo-bg); /* Passt sich exakt dem Bild an */
             color: white; padding: 4rem 1rem; text-align: center; 
             border-bottom: 5px solid var(--gold-accent); 
         }
         .logo-img { 
             width: 100%; max-width: 800px; height: auto; 
-            display: block; margin: 0 auto 2rem auto; background: transparent;
-            /* Software-Filter für transparente Kanten */
-            mix-blend-mode: multiply;
+            display: block; margin: 0 auto;
         }
-        /* GESPERRTER BEREICH ENDE */
 
-        /* INHALTSBEREICH: TEXTE & ÜBERSCHRIFTEN */
+        /* INHALTSBEREICH */
         .section-title { 
-            font-size: 2.3rem;
-            font-weight: 800; 
-            color: var(--primary-purple);
-            margin-bottom: 0.5rem; 
-            text-align: left; 
-            line-height: 1.2;
+            font-size: 2.3rem; font-weight: 800; color: var(--primary-purple);
+            margin-bottom: 0.5rem; text-align: left; line-height: 1.2;
         }
         .section-subtitle { 
-            font-size: 1.1rem; 
-            color: #444444; 
-            margin-bottom: 3.5rem; 
-            text-align: left; 
-            font-weight: 500;
-            max-width: 900px;
-            line-height: 1.6;
+            font-size: 1.1rem; color: #444444; margin-bottom: 3.5rem; 
+            text-align: left; font-weight: 500; max-width: 900px; line-height: 1.6;
         }
-        
-        /* DIENSTLEISTUNGS-KARTEN */
-        .horizontal-scroll-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); 
-            gap: 1.2rem; 
-            margin-bottom: 4rem; 
-            text-align: left; 
-        }
-        
-        .koerber-card { 
-            background: #f9f9f9; 
-            border-radius: 4px; 
-            min-height: 280px; 
-            border-top: 4px solid var(--primary-purple); 
-            padding: 1.2rem; 
-            box-shadow: var(--card-shadow); 
-            transition: all 0.3s ease; 
-        }
-        .koerber-card:hover { 
-            transform: translateY(-5px); 
-            background-color: var(--hover-soft);
-            border-top-color: var(--gold-accent);
-        }
+        .horizontal-scroll-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1.2rem; margin-bottom: 4rem; text-align: left; }
+        .koerber-card { background: #f9f9f9; border-radius: 4px; min-height: 280px; border-top: 4px solid var(--primary-purple); padding: 1.2rem; box-shadow: var(--card-shadow); transition: all 0.3s ease; }
+        .koerber-card:hover { transform: translateY(-5px); background-color: var(--hover-soft); border-top-color: var(--gold-accent); }
         .koerber-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--dark-purple); margin-top: 0; }
         .koerber-card p { font-size: 0.85rem; color: #444444; margin: 0; line-height: 1.5; }
 
-        /* PROJEKTE & KETTEN-ANIMATION NR. 1 */
+        /* PROJEKTE & KETTEN-ANIMATION */
         .projects-section { margin-top: 5rem; text-align: left; }
-        
-        .project-featured {
-            width: 100%;
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem 0;
-            background: transparent;
-            box-sizing: border-box;
-            position: relative;
-            overflow: hidden; 
-            height: 350px;
-        }
-        .project-featured-img-wrapper {
-            width: 250px;
-            height: 250px;
-            position: absolute;
-            top: 50px;
-            left: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: infinite-pass-through 12s linear infinite;
-        }
-        .project-featured-img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            animation: rotate-ccw 10s linear infinite;
-        }
-        
-        @keyframes rotate-ccw {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(-360deg); }
-        }
-        @keyframes infinite-pass-through {
-            0% { left: -250px; }
-            100% { left: 100%; }
-        }
+        .project-featured { width: 100%; text-align: center; margin-bottom: 3rem; padding: 2rem 0; background: transparent; box-sizing: border-box; position: relative; overflow: hidden; height: 350px; }
+        .project-featured-img-wrapper { width: 250px; height: 250px; position: absolute; top: 50px; left: 0; display: flex; justify-content: center; align-items: center; animation: infinite-pass-through 12s linear infinite; }
+        .project-featured-img { width: 100%; height: 100%; object-fit: contain; animation: rotate-ccw 10s linear infinite; }
+        @keyframes rotate-ccw { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+        @keyframes infinite-pass-through { from { left: -250px; } to { left: 100%; } }
 
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        
-        .project-card { 
-            background: #ffffff; 
-            border: 1px solid #eeeeee; 
-            border-radius: 4px; 
-            overflow: hidden; 
-            box-shadow: var(--card-shadow); 
-            transition: all 0.3s ease; 
-        }
-        .project-card:hover { 
-            transform: scale(1.02); 
-            background-color: var(--hover-soft);
-        }
+        .project-card { background: #ffffff; border: 1px solid #eeeeee; border-radius: 4px; overflow: hidden; box-shadow: var(--card-shadow); transition: all 0.3s ease; }
+        .project-card:hover { transform: scale(1.02); background-color: var(--hover-soft); }
         .project-img-wrapper { width: 100%; height: 250px; overflow: hidden; }
         .project-img { width: 100%; height: 100%; object-fit: contain; padding: 0.5rem; box-sizing: border-box; }
         .project-title { padding: 1rem; margin: 0; font-size: 1rem; font-weight: 600; color: var(--text-dark); border-top: 1px solid #f0f0f0; background: #fafafa; }
         
-        /* 3. GESPERRTER BEREICH: KONTAKT & FOOTER MIT IMPRESSUM */
-        .contact-section { 
-            background: var(--dark-purple); 
-            color: white; 
-            padding: 3rem 2.5rem; 
-            border-radius: 4px; 
-            margin-top: 6rem; 
-            text-align: left; 
-            border-left: 6px solid var(--gold-accent); 
-        }
+        /* KONTAKT & FOOTER */
+        .contact-section { background: var(--dark-purple); color: white; padding: 3rem 2.5rem; border-radius: 4px; margin-top: 6rem; text-align: left; border-left: 6px solid var(--gold-accent); }
         .contact-section a { color: var(--gold-accent); text-decoration: underline; font-weight: bold; }
-        
-        footer { 
-            background: var(--deep-background); 
-            color: #c2b4d6; 
-            padding: 4rem 1.5rem; 
-            border-top: 4px solid var(--gold-accent); 
-            text-align: left; 
-        }
-        .footer-container { max-width: 900px; margin: 0 auto; }
-        
-        .accordion-item { border-bottom: 1px solid #3c1963; }
-        .accordion-trigger { 
-            width: 100%; background: none; border: none; text-align: left; 
-            color: #ffffff; font-size: 1.1rem; font-weight: 600; 
-            padding: 1.2rem 0; cursor: pointer; display: flex; 
-            justify-content: space-between; 
-        }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .accordion-item.active .accordion-content { max-height: 500px; }
-        .legal-text { padding: 0.5rem 0 1.5rem 0; color: #c2b4d6; font-size: 0.95rem; }
-        
+        footer { background: var(--deep-background); color: #c2b4d6; padding: 4rem 1.5rem; border-top: 4px solid var(--gold-accent); text-align: left; }
         .footer-copyright { text-align: center; font-size: 0.85rem; color: #7c6894; margin-top: 2rem; }
-        /* GESPERRTER BEREICH ENDE */
     </style>
 </head>
 <body>
@@ -251,52 +146,27 @@
             <!-- Projekte -->
             <div id="projekte" class="projects-section">
                 <h2 class="section-title">Projekte</h2>
-                <p class="section-subtitle">Ein Auszug unserer fortlaufenden Konstruktions- und Designarbeiten.</p>
-
-                <!-- PROJEKT 1: DER "EYECATCHER" MIT PORTAL-EFFEKT -->
                 <div class="project-featured">
                     <div class="project-featured-img-wrapper">
                         <img src="projekt1.jpg" alt="Projekt 1" class="project-featured-img" onerror="this.style.display='none'">
                     </div>
                     <div style="margin-top: 1.5rem; font-weight: 700; color: var(--text-dark); text-align: center;">Nr. 1: Technisches 3D-Bauteil</div>
                 </div>
-
                 <div class="project-grid">
-                    <div class="project-card">
-                        <div class="project-img-wrapper">
-                            <img src="projekt2.jpg" alt="Projekt 2" class="project-img" onerror="this.style.display='none'">
-                        </div>
-                        <div class="project-title">Projekt 2: Prototypen-Entwicklung</div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-img-wrapper">
-                            <img src="projekt3.jpg" alt="Projekt 3" class="project-img" onerror="this.style.display='none'">
-                        </div>
-                        <div class="project-title">Projekt 3: 3D-Konstruktion</div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-img-wrapper">
-                            <img src="projekt4.jpg" alt="Projekt 4" class="project-img" onerror="this.style.display='none'">
-                        </div>
-                        <div class="project-title">Projekt 4: Modellierung & Design</div>
-                    </div>
+                    <div class="project-card"><div class="project-img-wrapper"><img src="projekt2.jpg" alt="Projekt 2" class="project-img"></div><div class="project-title">Projekt 2</div></div>
+                    <div class="project-card"><div class="project-img-wrapper"><img src="projekt3.jpg" alt="Projekt 3" class="project-img"></div><div class="project-title">Projekt 3</div></div>
+                    <div class="project-card"><div class="project-img-wrapper"><img src="projekt4.jpg" alt="Projekt 4" class="project-img"></div><div class="project-title">Projekt 4</div></div>
                 </div>
             </div>
-
             <div id="kontakt" class="contact-section">
                 <h3>Gemeinsam Projekte realisieren</h3>
-                <p>Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com" style="font-size: 1.4rem;">plctede@gmail.com</a></p>
+                <p>E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a></p>
             </div>
         </div>
-
-        <footer>
-            <div class="footer-container">
-                <div class="footer-copyright"><p>&copy; 2026 PLC TEAM DESIGN - Bad Oeynhausen</p></div>
-            </div>
-        </footer>
+        <footer><div class="footer-copyright"><p>&copy; 2026 PLC TEAM DESIGN - Bad Oeynhausen</p></div></footer>
     </div>
 
-    <!-- PROGRAMMIER-LOGIK FÜR DIE GEKAPSELTEN ELEMENTE -->
+    <!-- PROGRAMMIER-LOGIK -->
     <script>
         class SidebarShop extends HTMLElement {
             constructor() {
@@ -304,26 +174,13 @@
                 const shadow = this.attachShadow({mode: 'closed'});
                 shadow.innerHTML = `
                     <style>
-                        .sidebar-shop {
-                            margin-bottom: 2.5rem; background-color: #ffffff;
-                            display: flex; flex-direction: column; align-items: center;
-                            padding: 10px 0.5px; border-radius: 4px; border: 4px solid #d4af37;
-                            text-decoration: none; box-sizing: border-box; transition: background-color 0.3s ease;
-                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                            overflow: hidden;
-                        }
+                        .sidebar-shop { margin-bottom: 2.5rem; background-color: #ffffff; display: flex; flex-direction: column; align-items: center; padding: 10px 0.5px; border-radius: 4px; border: 4px solid #d4af37; text-decoration: none; box-sizing: border-box; transition: background-color 0.3s ease; font-family: 'Segoe UI', Tahoma, sans-serif; overflow: hidden; }
                         .sidebar-shop img { width: 100%; height: auto; display: block; margin-bottom: 8px; mix-blend-mode: multiply; }
-                        .shop-text-container { display: flex; flex-direction: column; align-items: center; color: #111111; font-weight: 700; font-size: 1rem; line-height: 1.2; text-align: center; }
-                        .shop-plus { font-size: 1rem; line-height: 1; margin: 0.1rem 0; }
+                        .shop-text-container { display: flex; flex-direction: column; align-items: center; color: #111111; font-weight: 700; font-size: 1rem; text-align: center; }
+                        .shop-plus { font-size: 1rem; line-height: 1; }
                         .sidebar-shop:hover { background-color: #f5f0fa; }
                     </style>
-                    <a href="myspreadshop.de" target="_blank" rel="noopener noreferrer" class="sidebar-shop">
-                        <img src="shop-logo.png" alt="Shop" onerror="this.style.display='none'">
-                        <div class="shop-text-container">
-                            <span class="shop-plus">+</span>
-                            <span>Shop</span>
-                        </div>
-                    </a>
+                    <a href="myspreadshop.de" target="_blank" class="sidebar-shop"><img src="shop-logo.png" alt="Shop"><div class="shop-text-container"><span class="shop-plus">+</span><span>Shop</span></div></a>
                 `;
             }
         }
@@ -337,14 +194,7 @@
                 const title = this.getAttribute('title');
                 shadow.innerHTML = `
                     <style>
-                        .sidebar-link {
-                            color: #111111; text-decoration: none; font-weight: 700; font-size: 1rem;
-                            padding: 0.8rem 1rem; background-color: #ffffff; margin-bottom: 1rem;
-                            text-align: left; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-                            border: 4px solid #d4af37; box-sizing: border-box; display: block;
-                            transition: background-color 0.3s ease;
-                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                        }
+                        .sidebar-link { color: #111111; text-decoration: none; font-weight: 700; font-size: 1rem; padding: 0.8rem 1rem; background-color: #ffffff; margin-bottom: 1rem; text-align: left; border-radius: 4px; border: 4px solid #d4af37; box-sizing: border-box; display: block; transition: background-color 0.3s ease; font-family: 'Segoe UI', Tahoma, sans-serif; }
                         .sidebar-link:hover { background-color: #f5f0fa; }
                     </style>
                     <a href="${href}" class="sidebar-link">${title}</a>
