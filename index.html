@@ -34,6 +34,8 @@
             background-color: var(--light-bg); 
             display: flex; 
             overflow-x: hidden; 
+            /* Ermöglicht natives weiches Scrollen im Browser */
+            scroll-behavior: smooth; 
         } 
         
         /* FESTE SEITENLEISTE */
@@ -56,7 +58,7 @@
         /* LOGO-SHOP KASTEN: Starr auf 218px x 130px mit 6px Goldrand */
         .logo-box {
             background: #ffffff !important;
-            padding: 0.5px !important; /* Erzeugt den geforderten 0.5px Abstand des Logos zum Rand */
+            padding: 0.5px !important; 
             margin-bottom: 1.5rem !important;
             border: 6px solid var(--gold-accent) !important; 
             border-radius: 4px !important;
@@ -68,16 +70,22 @@
             height: 130px !important; 
             box-sizing: border-box !important;
             cursor: pointer;
+            transition: background-color 0.3s ease !important; 
         }
 
-        /* LOGO-FLEXIBILITÄT: Schmiegt sich nun bis auf 0.5px an den Goldrand an */
+        .logo-box:hover {
+            background-color: var(--primary-purple) !important;
+        }
+
+        /* LOGO-FLEXIBILITÄT */
         .sidebar-logo {
             width: 100% !important;
-            max-width: 100% !important; /* Nimmt die volle verfügbare Breite bis zum 0.5px-Abstand ein */
+            max-width: 100% !important; 
             height: auto !important;
             display: block !important;
             margin: 0 auto !important; 
-            object-fit: contain !important; /* Verhindert das Verzerren des Bildes */
+            object-fit: contain !important; 
+            transition: filter 0.3s ease !important;
         }
 
         /* Container für + und Shop */
@@ -98,6 +106,7 @@
             line-height: 1 !important;
             margin-bottom: 0.1rem !important; 
             text-align: center !important;
+            transition: color 0.3s ease !important;
         }
 
         .shop-text {
@@ -107,6 +116,12 @@
             text-align: center !important;
             letter-spacing: 0.5px !important;
             text-transform: uppercase !important;
+            transition: color 0.3s ease !important;
+        }
+
+        .logo-box:hover .shop-plus,
+        .logo-box:hover .shop-text {
+            color: #ffffff !important;
         }
 
         /* BUTTONS IM LINKEN RAND */
@@ -388,15 +403,15 @@
 
     <!-- SEITENLEISTE --> 
     <div class="sidebar-nav">
-        <!-- WEITERLEITUNG ZUM SPREADSHOP BEI KLICK -->
-        <div class="logo-box" onclick="window.open('https://plc-team-design.myspreadshop.de/', '_blank')">
+        <!-- WEITERLEITUNG ZUM SPREADSHOP IM NEUEN TAB BEI KLICK -->
+        <div class="logo-box" onclick="window.open('myspreadshop.de', '_blank')">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
             <div class="shop-text-wrapper">
                 <div class="shop-plus">+</div>
                 <div class="shop-text">Shop</div>
             </div>
         </div>
-        <!-- Menü-Buttons -->
+        <!-- Menü-Buttons (Sprechen die IDs der Abschnitte an) -->
         <a href="#leistungen" class="nav-btn">Leistungen</a>
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#contact" class="nav-btn">Contact</a>
@@ -414,6 +429,7 @@
             <p class="section-subtitle">Wir begleiten Sie von der ersten Skizze &uuml;ber das kreative Grafikdesign bis hin zur pr&auml;zisen 3D-Konstruktion. Als engagierter Partner f&uuml;r Unternehmen und Start-ups entwickeln wir technische Produkte und 3D-Objekte mit hohem Qualit&auml;tsanspruch &ndash; zuverl&auml;ssig, nah am Kunden und l&ouml;sungsorientiert.</p>
 
             <!-- DIENSTLEISTUNGEN -->
+            <!-- ID für Verlinkung zugewiesen -->
             <div id="leistungen" class="horizontal-scroll-grid">
                 <div class="koerber-card">
                     <h3>Wunschdesign</h3>
@@ -438,6 +454,7 @@
             </div>
 
             <!-- PROJEKTE -->
+            <!-- ID für Verlinkung zugewiesen -->
             <div id="projekte" class="projects-section">
                 <h2 class="section-title">Unsere Projekte</h2>
                 
@@ -476,6 +493,7 @@
             </div>
 
             <!-- KONTAKT -->
+            <!-- ID für Verlinkung zugewiesen -->
             <div id="contact" class="contact-section">
                 <h3>Wir helfen Ihnen gerne weiter!</h3>
                 <p style="text-decoration: none; font-weight: normal;">Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a></p>
@@ -484,7 +502,7 @@
 
         </div>
 
-        <!-- FOOTER MIT RECHTLICH KORREKTEM IMPRESSUM FÜR KLEINUNTERNEHMER -->
+        <!-- FOOTER -->
         <footer>
             <div class="footer-container">
                 <div class="accordion-item">
@@ -518,7 +536,9 @@
 
     </div>
 
+    <!-- SKRIPTE FÜR AKKORDEON UND SMOOTH SCROLLING -->
     <script>
+        // Akkordeon im Footer
         function toggleAccordion() {
             var item = document.querySelector('.accordion-item');
             var content = document.getElementById('impressum-content');
@@ -531,6 +551,22 @@
                 content.style.maxHeight = content.scrollHeight + "px";
             }
         }
+
+        // JS Fallback für absolut flüssiges Scrollen auf allen Browsern
+        document.querySelectorAll('.sidebar-nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 
 </body>
