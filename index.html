@@ -35,7 +35,7 @@
             width: 250px; 
             height: 100vh; 
             background-color: #ffffff !important; 
-            border-right: 6px solid var(--gold-accent) !important; 
+            border-right: 6px solid var(--gold-accent) !important; /* Haupt-Umrandung 6px */
             box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05); 
             position: fixed; 
             top: 0; 
@@ -47,12 +47,12 @@
             z-index: 1000; 
         } 
         
-        /* WEISSER KASTEN FÜR LOGO + TEXT MIT ERZWUNGENEM GOLDENEM RAND */
+        /* WEISSER KASTEN FÜR LOGO + TEXT MIT EXAKT 6PX GOLDENEM RAND */
         .logo-box {
             background: #ffffff !important; 
             padding: 0.8rem 0.4rem;
             margin-bottom: 1.5rem;
-            border: 3px solid var(--gold-accent) !important; /* Dickerer Goldrand */
+            border: 6px solid var(--gold-accent) !important; /* Exakt 6px wie die Haupt-Umrandung */
             border-radius: 4px !important;
             display: flex;
             flex-direction: column; 
@@ -100,7 +100,7 @@
             transition: color 0.3s ease;
         }
 
-        /* SCHALTFLÄCHEN MIT GARANTIERTEM GOLDENEM RAND */
+        /* SCHALTFLÄCHEN MIT FIXIERTEM 6PX GOLDENEM RAND */
         .sidebar-nav a.nav-btn {
             display: block !important;
             background: #ffffff !important; 
@@ -110,7 +110,7 @@
             margin-bottom: 1rem !important;
             text-decoration: none !important;
             font-weight: bold !important;
-            border: 3px solid var(--gold-accent) !important; /* Aktiviert den Goldrand dauerhaft */
+            border: 6px solid var(--gold-accent) !important; /* Exakt 6px wie die Haupt-Umrandung */
             border-radius: 4px !important;
             font-size: 0.9rem !important;
             box-sizing: border-box !important;
@@ -400,15 +400,15 @@
 </head>
 <body> 
 
-    <!-- SEITENLEISTE (REIN WEISS MIT FIXIERTEM GOLD-RAND) --> 
+    <!-- SEITENLEISTE (REIN WEISS MIT GARANTIERTEN 6PX GOLD-RÄNDERN) --> 
     <div class="sidebar-nav">
-        <!-- Weißer Kasten für Logo und Shop-Text mit Goldrand -->
+        <!-- Weißer Kasten für Logo und Shop-Text mit 6px Goldrand -->
         <div class="logo-box" onclick="location.href='#shop'">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
             <div class="shop-plus">+</div>
             <div class="shop-text">Shop</div>
         </div>
-        <!-- Schaltflächen mit Goldrand und Lila Hover-Effekt -->
+        <!-- Schaltflächen mit 6px Goldrand und Lila Hover-Effekt -->
         <a href="#leistungen" class="nav-btn">Leistungen</a>
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#contact" class="nav-btn">Contact</a>
