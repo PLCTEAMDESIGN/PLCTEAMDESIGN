@@ -53,24 +53,24 @@
             z-index: 1000; 
         } 
         
-        /* LOGO-SHOP KASTEN: HÖHE VERGRÖSSERT SICH JETZT AUTOMATISCH NACH INHALT */
+        /* LOGO-SHOP KASTEN: Automatisch an den goldenen Rand angepasst (0.5px) */
         .logo-box {
             background: #ffffff !important;
-            padding: 1rem 0.5rem !important; /* Mehr Innenabstand für bessere Optik */
+            padding: 1rem 0.5rem !important; 
             margin-bottom: 1.5rem !important;
-            border: 6px solid var(--gold-accent) !important; 
+            border: 0.5px solid var(--gold-accent) !important; /* Auf 0.5 Pixel angepasst */
             border-radius: 4px !important;
             display: flex !important;
             flex-direction: column !important; 
             align-items: center !important; 
             justify-content: center !important; 
-            width: 218px !important; /* Breite bleibt starr */
-            height: auto !important; /* Verhindert das Abschneiden der Elemente */
+            width: 218px !important; 
+            height: auto !important; 
             box-sizing: border-box !important;
             cursor: pointer;
         }
 
-        /* LOGO-KALKULATION: Füllt nun den maximalen Platz in der Box aus */
+        /* LOGO-KALKULATION */
         .sidebar-logo {
             width: 100% !important;
             max-width: 160px !important; 
@@ -79,7 +79,7 @@
             margin: 0 auto 0.5rem auto !important; 
         }
 
-        /* Container für + und Shop erzwingt feste Symmetrie und verhindert Lücken */
+        /* Container für + und Shop */
         .shop-text-wrapper {
             display: flex !important;
             flex-direction: column !important;
@@ -108,18 +108,18 @@
             text-transform: uppercase !important;
         }
 
-        /* BUTTONS IM LINKEN RAND: ABSOLUT STARR AUF DIE PIXEL FIXIERT */
+        /* BUTTONS IM LINKEN RAND: Ebenfalls an den feinen goldenen Rand angepasst (0.5px) */
         .sidebar-nav a.nav-btn {
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
-            width: 218px !important; /* Starr auf 218 Pixel fixiert */
-            height: 52px !important; /* Starr auf 52 Pixel fixiert */
+            width: 218px !important; 
+            height: 52px !important; 
             background: #ffffff !important; 
             color: var(--text-dark) !important;
             text-decoration: none !important;
             font-weight: bold !important;
-            border: 6px solid var(--gold-accent) !important; 
+            border: 0.5px solid var(--gold-accent) !important; /* Auf 0.5 Pixel angepasst */
             border-radius: 4px !important;
             font-size: 1.1rem !important; 
             margin-bottom: 1rem !important;
@@ -404,7 +404,6 @@
 
     <!-- SEITENLEISTE --> 
     <div class="sidebar-nav">
-        <!-- Logo-Shop Kasten (Höhe passt sich nun dynamisch an) -->
         <div class="logo-box" onclick="location.href='#shop'">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
             <div class="shop-text-wrapper">
@@ -412,7 +411,6 @@
                 <div class="shop-text">Shop</div>
             </div>
         </div>
-        <!-- Menü-Buttons (Starr auf 218px x 52px) -->
         <a href="#leistungen" class="nav-btn">Leistungen</a>
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#contact" class="nav-btn">Contact</a>
@@ -429,7 +427,6 @@
             <h2 class="section-title">&#x2728; &bdquo;Designen mit Leidenschaft und Herzblut f&uuml;r technische Produkte &amp; 3D-Objekte sind wir da!&ldquo; &#x1F4AB;</h2>
             <p class="section-subtitle">Wir begleiten Sie von der ersten Skizze &uuml;ber das kreative Grafikdesign bis hin zur pr&auml;zisen 3D-Konstruktion. Als engagierter Partner f&uuml;r Unternehmen und Start-ups entwickeln wir technische Produkte und 3D-Objekte mit hohem Qualit&auml;tsanspruch &ndash; zuverl&auml;ssig, nah am Kunden und l&ouml;sungsorientiert.</p>
 
-            <!-- DIENSTLEISTUNGEN -->
             <div id="leistungen" class="horizontal-scroll-grid">
                 <div class="koerber-card">
                     <h3>Wunschdesign</h3>
@@ -453,7 +450,6 @@
                 </div>
             </div>
 
-            <!-- PROJEKTE -->
             <div id="projekte" class="projects-section">
                 <h2 class="section-title">Unsere Projekte</h2>
                 
@@ -491,7 +487,6 @@
                 </div>
             </div>
 
-            <!-- KONTAKT -->
             <div id="contact" class="contact-section">
                 <h3>Wir helfen Ihnen gerne weiter!</h3>
                 <p style="text-decoration: none; font-weight: normal;">Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a></p>
@@ -500,7 +495,6 @@
 
         </div>
 
-        <!-- FOOTER -->
         <footer>
             <div class="footer-container">
                 <div class="accordion-item">
