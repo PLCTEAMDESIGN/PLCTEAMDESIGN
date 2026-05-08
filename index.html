@@ -9,7 +9,7 @@
     <meta name="google-site-verification" content="hXvCe_t1mEstDom0kluGGE9olJTBmsdgksjMmIZRnKs" /> 
     
     <style> 
-        /* 1. GLOBALE ABSICHERUNG GEGEN VERSCHIEBUNGEN */
+        /* 1. GLOBALE ABSICHERUNG (WASSERDICHT) */
         * {
             box-sizing: border-box !important;
         }
@@ -344,8 +344,9 @@
             .project-featured-img-wrapper { animation: none; position: relative; margin: 0 auto; top: 0; left: auto; } 
         } 
         
+        /* FOOTER-BEREICH KORRIGIERT */
         footer { 
-            background: var(--deep-background); 
+            background: var(--deep-background) !important; 
             color: #c2b4d6; 
             padding: 4rem 1.5rem; 
             border-top: 6px solid var(--gold-accent); 
@@ -399,15 +400,13 @@
 
     <!-- SEITENLEISTE --> 
     <div class="sidebar-nav">
-        <!-- WEITERLEITUNG ZUM SPREADSHOP BEI KLICK -->
-        <div class="logo-box" onclick="window.open('https://plc-team-design.myspreadshop.de/', '_blank')">
+        <div class="logo-box" onclick="window.open('myspreadshop.de', '_blank')">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
             <div class="shop-text-wrapper">
                 <div class="shop-plus">+</div>
                 <div class="shop-text">Shop</div>
             </div>
         </div>
-        <!-- Menü-Buttons -->
         <a href="#leistungen" class="nav-btn">Leistungen</a>
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#contact" class="nav-btn">Contact</a>
@@ -503,7 +502,7 @@
                     <div id="impressum-content" class="accordion-content">
                         <div class="legal-text">
                             <strong>PLC Team Design</strong><br>
-                            Gesch&auml;ftsf&uuml;hrer &amp; Ansprechpartner:<br>
+                            Ansprechpartner:<br>
                             Pedro Lereno Cordeiro<br>
                             (Maschinenbau-Techniker)<br><br>
                             
@@ -519,7 +518,7 @@
                             Rastenburger Str. 11, 32545 Bad Oeynhausen<br><br>
 
                             <strong>Hinweis zur Umsatzsteuer:</strong><br>
-                            Gem&auml;&szlig; &sect; 19 UStG wird keine Umsatzsteuer berechnet und ausgewiesen (Kleinunternehmerstatus).
+                            Gem&auml;&szlig; &sect; 19 UStG wird keine Umsatzsteuer berechnet und ausgewiesen.
                         </div>
                     </div>
                 </div>
