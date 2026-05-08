@@ -71,7 +71,7 @@
             line-height: 1.6;
         }
         
-        /* 5 KARTEN NEBENEINANDER (Gleichmäßige Größen) */
+        /* 5 KARTEN NEBENEINANDER */
         .horizontal-scroll-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); 
@@ -216,7 +216,6 @@
                         <h3>Technische Analyse</h3>
                         <p>Sie benötigen weitere Lösungen für Wiederherstellungen, Reparaturen der 3D-Körper von Bauteilen, Baugruppen und die anschließenden FEM-Analysen mit Simulationsberechnungen?</p>
                     </div>
-                    <!-- 5. KARTE HIER RECHTS OBEN EINGEFÜGT UND PREIS ENTFERNT -->
                     <div class="koerber-card">
                         <h3>Webdesign</h3>
                         <p>Unterstützung von Unternehmen und Start-ups bei der professionellen Erstellung und Umsetzung ihrer Webpräsenz mit vorhandenen Dokumenten. Individuelle Konditionen nach Absprache.</p>
@@ -287,8 +286,15 @@
                             text-decoration: none; box-sizing: border-box; transition: background-color 0.3s ease;
                             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                         }
-                        /* OPTIMIERTE GRÖSSE DES SHOP-LOGOS */
-                        .sidebar-shop img { width: 100%; max-width: 140px; height: auto; display: block; margin-bottom: 0.5rem; mix-blend-mode: multiply; }
+                        /* SKALIERUNG DES LOGOS EXAKT NACH DEM ROTEN KRINGEL */
+                        .sidebar-shop img { 
+                            width: 100%; 
+                            max-width: 170px; /* Erhöht für ein besseres Füllverhalten */
+                            height: auto; 
+                            display: block; 
+                            margin-bottom: 0.5rem; 
+                            mix-blend-mode: multiply; 
+                        }
                         .shop-text-container { display: flex; flex-direction: column; align-items: center; color: #d4af37; font-weight: 800; font-size: 1.1rem; line-height: 1.2; text-align: center; }
                         .shop-plus { font-size: 1.6rem; line-height: 1; margin: 0.1rem 0; }
                         .sidebar-shop:hover { background-color: #f5f0fa; }
