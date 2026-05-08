@@ -30,7 +30,7 @@
         
         .sidebar-nav {
             width: 250px; height: 100vh;
-            background-color: #ffffff; /* Hintergrundfarbe links entfernt */
+            background-color: #ffffff; /* Farbe links als Hintergrund entfernt */
             border-right: 6px solid var(--gold-accent); /* Goldener Rand mit 6px Dicke */
             position: fixed; top: 0; left: 0;
             display: flex; flex-direction: column;
@@ -103,10 +103,11 @@
             body { flex-direction: column; }
             .sidebar-nav { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 6px solid var(--gold-accent); padding: 1rem; }
             .main-content { margin-left: 0; }
+            .container { margin: 2rem auto; padding: 0 1.5rem; }
             .section-title { font-size: 2rem; }
         }
 
-        /* 2. HEADER & BANNER: Header-Hintergrundfarbe wiederhergestellt wegen weißer Schrift */
+        /* 2. HEADER & BANNER: Header-Hintergrundfarbe für weißes Logo */
         header { 
             background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple)) !important; 
             color: white; 
@@ -122,7 +123,7 @@
             filter: drop-shadow(3px 0px 0px #ffffff) drop-shadow(-3px 0px 0px #ffffff) drop-shadow(0px 3px 0px #ffffff) drop-shadow(0px -3px 0px #ffffff);
         }
 
-        /* TEXTE & ÜBERSCHRIFTEN (Original-Stil aus Code 1) */
+        /* INHALTSBEREICH: TEXTE & ÜBERSCHRIFTEN (Original-Stil aus Code 1) */
         .section-title { 
             font-size: 2.3rem;
             font-weight: 800; 
@@ -313,13 +314,14 @@
         </header>
 
         <div class="container">
-            <h2 class="section-title">Designen mit Leidenschaft und Herzblut f&uuml;r technische Produkte &amp; 3D-Objekte sind wir da!</h2>
-            <p class="section-subtitle">Wir begleiten Sie von der ersten Skizze &uuml;ber das kreative Grafikdesign bis hin zur pr&auml;zisen 3D-Konstruktion. Als engagierter Partner f&uuml;r Unternehmen und Start-ups entwickeln wir technische Produkte und 3D-Objekte mit hohem Qualit&auml;tsanspruch &ndash; zuverl&auml;ssig, nah am Kunden und l&ouml;sungsorientiert.</p>
+            <!-- Angepasste Überschrift mit Emojis -->
+            <h2 class="section-title">✨ „Designen mit Leidenschaft und Herzblut für technische Produkte &amp; 3D-Objekte sind wir da!“ 💫</h2>
+            <p class="section-subtitle">Wir begleiten Sie von der ersten Skizze über das kreative Grafikdesign bis hin zur präzisen 3D-Konstruktion. Als engagierter Partner für Unternehmen und Start-ups entwickeln wir technische Produkte und 3D-Objekte mit hohem Qualitätsanspruch – zuverlässig, nah am Kunden und lösungsorientiert.</p>
 
             <div id="leistungen" class="horizontal-scroll-grid">
                 <div class="koerber-card">
                     <h3>Wunschdesign</h3>
-                    <p>Wunschdesign: 3D-K&ouml;rper als Datenformat zur Weiterverarbeitung wie Fr&auml;sen, Drehen, Lasern, 3D-Druck oder f&uuml;r Werbezwecke.</p>
+                    <p>Wunschdesign: 3D-Körper als Datenformat zur Weiterverarbeitung wie Fräsen, Drehen, Lasern, 3D-Druck oder für Werbezwecke.</p>
                 </div>
                 <div class="koerber-card">
                     <h3>Materialanpassung</h3>
@@ -327,15 +329,15 @@
                 </div>
                 <div class="koerber-card">
                     <h3>Begleitung &amp; Beratung</h3>
-                    <p>Begleitung &amp; Beratung f&uuml;r regionale Produktionen (&ouml;kologischer Fu&szlig;abdruck) oder Weiteres.</p>
+                    <p>Begleitung &amp; Beratung für regionale Produktionen (ökologischer Fußabdruck) oder Weiteres.</p>
                 </div>
                 <div class="koerber-card">
                     <h3>Technische Analyse</h3>
-                    <p>Sie ben&ouml;tigen n&auml;here L&ouml;sungen f&uuml;r Wiederherstellungen, Reparaturen der 3D-K&ouml;rper von Bauteilen, Baugruppen und die eine detaillierte FEM Analyse mit Simulationsberechnungen?</p>
+                    <p>Sie benötigen nähere Lösungen für Wiederherstellungen, Reparaturen der 3D-Körper von Bauteilen, Baugruppen und die eine detaillierte FEM Analyse mit Simulationsberechnungen?</p>
                 </div>
                 <div class="koerber-card">
                     <h3>Webdesign</h3>
-                    <p>Unterst&uuml;tzung von Unternehmen und Start-ups bei der professionellen Umsetzung Ihres Webauftritts mit modernsten Webtechnologien, individuell, flexibel nach Absprache.</p>
+                    <p>Unterstützung von Unternehmen und Start-ups bei der professionellen Umsetzung Ihres Webauftritts mit modernsten Webtechnologien, individuell, flexibel nach Absprache.</p>
                 </div>
             </div>
 
@@ -359,7 +361,7 @@
                     </div>
                     <div class="project-card">
                         <div class="project-img-wrapper"><img src="projekt2.jpg" alt="Projekt 2" class="project-img"></div>
-                        <h4 class="project-title">Technische Zeichnung Geh&auml;use</h4>
+                        <h4 class="project-title">Technische Zeichnung Gehäuse</h4>
                     </div>
                     <div class="project-card">
                         <div class="project-img-wrapper"><img src="projekt3.jpg" alt="Projekt 3" class="project-img"></div>
@@ -376,7 +378,7 @@
             <div id="contact" class="contact-section">
                 <h3>Wir helfen Ihnen gerne weiter!</h3>
                 <p style="text-decoration: none; font-weight: normal;">Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a></p>
-                <p style="text-decoration: none; font-weight: normal;">Status: <span style="color: #2ecc71; font-weight: bold;">&#9679; Aktuell erreichbar</span></p>
+                <p style="text-decoration: none; font-weight: normal;">Status: <span style="color: #2ecc71; font-weight: bold;">● Aktuell erreichbar</span></p>
             </div>
         </div>
 
@@ -384,11 +386,11 @@
         <footer>
             <div class="footer-container">
                 <div class="accordion-item">
-                    <button class="accordion-trigger" onclick="toggleAccordion()">Impressum / Kontakt <span>&#9660;</span></button>
+                    <button class="accordion-trigger" onclick="toggleAccordion()">Impressum / Kontakt <span>▼</span></button>
                     <div id="impressum-content" class="accordion-content">
                         <div class="legal-text">
                             <strong>PLC Team Design</strong><br>
-                            Gesch&auml;ftsf&uuml;hrer &amp; Ansprechpartner:<br>
+                            Geschäftsführer &amp; Ansprechpartner:<br>
                             Pedro Lereno Cordeiro<br>
                             (Maschinenbau-Techniker)<br><br>
                             
@@ -399,10 +401,10 @@
                             Tel.: 05731 9829839<br>
                             E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a><br><br>
                             
-                            <strong>Umsatzsteuer-Identifikationsnummer gem&auml;&szlig; &sect; 27 a Umsatzsteuergesetz:</strong><br>
+                            <strong>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:</strong><br>
                             Ust-IdNr.: DE 352501723<br><br>
                             
-                            <strong>Inhaltlich Verantwortlicher gem&auml;&szlig; &sect; 18 Abs. 2 MStV:</strong><br>
+                            <strong>Inhaltlich Verantwortlicher gemäß § 18 Abs. 2 MStV:</strong><br>
                             Pedro Lereno Cordeiro<br>
                             Rastenburger Str. 11, 32545 Bad Oeynhausen
                         </div>
@@ -413,7 +415,7 @@
         </footer>
     </div>
 
-    <!-- Skript f&uuml;r das Akkordeon -->
+    <!-- Skript für das Akkordeon -->
     <script>
         function toggleAccordion() {
             var item = document.querySelector('.accordion-item');
