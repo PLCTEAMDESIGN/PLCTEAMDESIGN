@@ -51,13 +51,14 @@
             flex-direction: column !important; 
             align-items: center !important; 
             padding: 1.5rem 1rem !important; 
+            box-sizing: border-box !important; 
             z-index: 1000; 
         } 
         
-        /* LOGO-SHOP KASTEN: Starr fixiert gegen Textverzerrung mit erzwungenem Goldrand */
+        /* LOGO-SHOP KASTEN: Starr fixiert auf Ihre Pixelgröße mit erzwungenem Goldrand */
         .logo-box {
             background: #ffffff !important;
-            padding: 0.8rem 0.4rem !important;
+            padding: 0.5rem !important;
             margin-bottom: 1.5rem !important;
             border: 6px solid var(--gold-accent) !important; 
             border-radius: 4px !important;
@@ -66,51 +67,56 @@
             align-items: center !important; 
             justify-content: center !important;
             width: 100% !important;
-            max-width: 218px !important;
-            height: 130px !important;
+            max-width: 218px !important; /* Starr fixiert */
+            height: 130px !important; /* Starr fixiert */
+            box-sizing: border-box !important;
+            transition: all 0.3s ease !important;
         }
 
         .sidebar-logo {
             width: 100% !important;
-            max-width: 180px !important;
+            max-width: 130px !important;
             height: auto !important;
             display: block !important;
-            margin-bottom: 0.5rem !important; 
+            margin: 0 auto 0.2rem auto !important; 
         }
 
         .shop-plus {
-            color: var(--text-dark) !important;
-            font-size: 1.2rem !important;
-            font-weight: bold !important;
+            color: var(--primary-purple) !important;
+            font-size: 1.3rem !important;
+            font-weight: 800 !important;
             line-height: 1 !important;
-            margin-bottom: 0.2rem !important; 
+            margin-bottom: 0.1rem !important; 
             text-align: center !important;
         }
 
         .shop-text {
             color: var(--text-dark) !important;
-            font-size: 0.95rem !important;
+            font-size: 0.9rem !important;
             font-weight: bold !important;
             text-align: center !important;
             letter-spacing: 0.5px !important;
+            text-transform: uppercase !important;
         }
 
-        /* BUTTONS IM LINKEN RAND: Erzwungener 6px Goldrand und vergrößerte Schrift */
+        /* BUTTONS IM LINKEN RAND: Starr fixiert auf Ihre Pixelgröße mit erzwungenem Goldrand */
         .sidebar-nav a.nav-btn {
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             width: 100% !important; 
-            max-width: 218px !important; 
-            height: 52px !important; 
+            max-width: 218px !important; /* Starr fixiert */
+            height: 52px !important; /* Starr fixiert */
             background: #ffffff !important; 
             color: var(--text-dark) !important;
             text-decoration: none !important;
             font-weight: bold !important;
             border: 6px solid var(--gold-accent) !important; 
             border-radius: 4px !important;
-            font-size: 1.1rem !important; 
+            font-size: 0.95rem !important; 
             margin-bottom: 1rem !important;
+            padding: 0 !important;
+            box-sizing: border-box !important;
             transition: all 0.3s ease !important; 
             text-align: center !important;
         } 
@@ -227,7 +233,7 @@
             transition: color 0.3s ease;
         } 
         
-        /* PROJEKTE & NEUE PERCENTAGE-ANIMATION FÜR PC & HANDY */ 
+        /* PROJEKTE & EINZELNE ROTIERENDE ANIMATION */ 
         .projects-section { 
             margin-top: 5rem; 
             text-align: left; 
@@ -245,7 +251,6 @@
             display: flex;
         } 
         
-        /* Erstes Bild: Startet bei 0% */
         .project-featured-img-wrapper { 
             width: 250px; 
             height: 250px; 
@@ -254,14 +259,9 @@
             display: flex; 
             justify-content: center; 
             align-items: center; 
-            animation: seamless-pass 12s linear infinite; 
+            animation: single-pass 8s linear infinite; /* Korigiert auf Einzel-Lauf */
         } 
         
-        /* Zweites Bild: Exakt um die Hälfte der Zeit (6s) versetzt */
-        .project-featured-img-wrapper.second {
-            animation-delay: -6s !important;
-        }
-
         .project-featured-img { 
             width: 100%; 
             height: 100%; 
@@ -274,21 +274,11 @@
             to { transform: rotate(-360deg); } 
         } 
         
-        /* Prozentsätze garantieren, dass es auf Handys und PCs exakt gleich lückenlos läuft */
-        @keyframes seamless-pass { 
+        /* Startet außerhalb links und fährt bis außerhalb rechts durch */
+        @keyframes single-pass { 
             0% { left: -250px; } 
             100% { left: 100%; } 
         } 
-
-        /* Auf Smartphones passen wir die Bilder etwas an, damit sie nicht den ganzen Screen füllen */
-        @media (max-width: 768px) {
-            .project-featured { height: 280px; }
-            .project-featured-img-wrapper { width: 180px; height: 180px; top: 50px; }
-            @keyframes seamless-pass { 
-                0% { left: -180px; } 
-                100% { left: 100%; } 
-            }
-        }
         
         .project-grid { 
             display: grid; 
@@ -332,6 +322,11 @@
             color: var(--text-dark); 
             border-top: 1px solid #f0f0f0; 
             background: #fafafa; 
+        } 
+        
+        @media (max-width: 768px) { 
+            .project-featured { height: auto; overflow: visible; display: block; }
+            .project-featured-img-wrapper { animation: none; position: relative; margin: 0 auto; top: 0; left: auto; } 
         } 
         
         /* 4. KONTAKT & RECHTLICHES IMPRESSUM */ 
@@ -407,11 +402,13 @@
 
     <!-- SEITENLEISTE --> 
     <div class="sidebar-nav">
+        <!-- Logo skaliert passend in den Kasten -->
         <div class="logo-box">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
             <div class="shop-plus">+</div>
             <div class="shop-text">Shop</div>
         </div>
+        <!-- Menü-Buttons bündig dazu -->
         <a href="#leistungen" class="nav-btn">Leistungen</a>
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#contact" class="nav-btn">Contact</a>
@@ -425,6 +422,7 @@
         </header>
 
         <div class="container">
+            <!-- Überschrift mit Emojis -->
             <h2 class="section-title">&#x2728; &bdquo;Designen mit Leidenschaft und Herzblut f&uuml;r technische Produkte &amp; 3D-Objekte sind wir da!&ldquo; &#x1F4AB;</h2>
             <p class="section-subtitle">Wir begleiten Sie von der ersten Skizze &uuml;ber das kreative Grafikdesign bis hin zur pr&auml;zisen 3D-Konstruktion. Als engagierter Partner f&uuml;r Unternehmen und Start-ups entwickeln wir technische Produkte und 3D-Objekte mit hohem Qualit&auml;tsanspruch &ndash; zuverl&auml;ssig, nah am Kunden und l&ouml;sungsorientiert.</p>
 
@@ -452,15 +450,12 @@
                 </div>
             </div>
 
-            <!-- PROJEKTE (ZWEI BILDER FÜR LÜCKENLOSEN DURCHLAUF AUF PC & HANDY) -->
+            <!-- PROJEKTE (NUR EIN BILD FÜR DURCHLAUF) -->
             <div id="projekte" class="projects-section">
                 <h2 class="section-title">Unsere Projekte</h2>
                 
                 <div class="project-featured">
                     <div class="project-featured-img-wrapper">
-                        <img src="projekt1.jpg" alt="Zahnrad Konstruktion" class="project-featured-img">
-                    </div>
-                    <div class="project-featured-img-wrapper second">
                         <img src="projekt1.jpg" alt="Zahnrad Konstruktion" class="project-featured-img">
                     </div>
                 </div>
