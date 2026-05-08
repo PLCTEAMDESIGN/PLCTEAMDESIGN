@@ -53,7 +53,7 @@
         }
         .sidebar-link:hover { background-color: var(--gold-accent); color: #ffffff; }
         
-        /* KORRIGIERTER SHOP-KASTEN (Kein oranger Text, nur Logo + zentrierter Text) */
+        /* KORRIGIERTER SHOP-KASTEN (Logo + zentrierter Text) */
         .sidebar-shop {
             margin-top: 2rem; 
             background-color: #ffffff;
@@ -64,6 +64,7 @@
             border-radius: 4px;
             border: 2px solid #ff9f1c;
             text-decoration: none;
+            transition: all 0.3s ease; /* Weicher Übergang für die Farbe */
         }
         
         /* Logo füllt die Breite des Kastens aus */
@@ -85,6 +86,7 @@
             font-size: 0.95rem;
             line-height: 1.4;
             text-align: center;
+            transition: color 0.3s ease;
         }
         .shop-plus {
             font-size: 1.5rem;
@@ -92,8 +94,14 @@
             margin: 0.1rem 0;
         }
         
-        .sidebar-shop:hover { background-color: #ff9f1c; }
-        .sidebar-shop:hover .shop-text-container { color: #ffffff; }
+        /* DER GEWÜNSCHTE EFFEKT BEI BERÜHRUNG (HOVER) */
+        .sidebar-shop:hover { 
+            background-color: var(--dark-purple); /* Wird lila bei Berührung */
+            border-color: var(--gold-accent);
+        }
+        .sidebar-shop:hover .shop-text-container { 
+            color: var(--gold-accent); /* Text wird gold bei Berührung */
+        }
         
         /* HAUPTBEREICH */
         .main-content { margin-left: 250px; flex: 1; min-width: 0; }
@@ -180,7 +188,7 @@
         <a href="#projekte" class="sidebar-link">Projekte</a>
         <a href="#kontakt" class="sidebar-link">Contact</a>
         
-        <!-- Shop-Kachel mit Logo und zentriertem Text -->
+        <!-- Shop-Kachel mit Hover-Effekt (Mausberührung) -->
         <a href="myspreadshop.de" target="_blank" rel="noopener noreferrer" class="sidebar-shop">
             <img src="shop-logo.png" alt="Shop" onerror="this.style.display='none'">
             <div class="shop-text-container">
@@ -209,7 +217,7 @@
                 <div class="horizontal-scroll-grid">
                     <div class="koerber-card">
                         <h3>Wunschdesign</h3>
-                        <p>3D-Körper als Dateiformat zur Weiterverarbeitung wie Fräsen, Drehen, Lasern, 3D-Druck oder für Werbezwecke.</p>
+                        <p>Wunschdesign, 3D-Körper als Dateiformat zur Weiterverarbeitung wie Fräsen, Drehen, Lasern, 3D-Druck oder für Werbezwecke.</p>
                     </div>
                     <div class="koerber-card">
                         <h3>Materialanpassung</h3>
@@ -266,7 +274,7 @@
             <!-- Kontakt -->
             <div id="kontakt" class="contact-section">
                 <h3>Gemeinsam Projekte realisieren</h3>
-                <p>Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com" style="font-size: 1.4rem;">plctede@gmail.com</a></p>
+                <p>Wir helfen Ihnen gerne weiter! Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com" style="font-size: 1.4rem;">plctede@gmail.com</a></p>
             </div>
         </div>
 
