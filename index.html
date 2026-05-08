@@ -227,7 +227,7 @@
             transition: color 0.3s ease;
         } 
         
-        /* PROJEKTE & LAUFBAND-ANIMATION (ZWEI BILDER FÜR NAHTLOSEN ÜBERGANG) */ 
+        /* PROJEKTE & NEUE PERCENTAGE-ANIMATION FÜR PC & HANDY */ 
         .projects-section { 
             margin-top: 5rem; 
             text-align: left; 
@@ -245,6 +245,7 @@
             display: flex;
         } 
         
+        /* Erstes Bild: Startet bei 0% */
         .project-featured-img-wrapper { 
             width: 250px; 
             height: 250px; 
@@ -253,13 +254,12 @@
             display: flex; 
             justify-content: center; 
             align-items: center; 
-            /* Zeit auf 12s für einen flüssigen Durchlauf beider Bilder */
             animation: seamless-pass 12s linear infinite; 
         } 
         
-        /* Das zweite Bild läuft exakt zeitversetzt um die Hälfte der Animationsdauer */
+        /* Zweites Bild: Exakt um die Hälfte der Zeit (6s) versetzt */
         .project-featured-img-wrapper.second {
-            animation-delay: -6s;
+            animation-delay: -6s !important;
         }
 
         .project-featured-img { 
@@ -274,11 +274,21 @@
             to { transform: rotate(-360deg); } 
         } 
         
-        /* Startet außerhalb links und fährt bis außerhalb rechts durch */
+        /* Prozentsätze garantieren, dass es auf Handys und PCs exakt gleich lückenlos läuft */
         @keyframes seamless-pass { 
-            0% { transform: translateX(-250px); } 
-            100% { transform: translateX(1100px); } 
+            0% { left: -250px; } 
+            100% { left: 100%; } 
         } 
+
+        /* Auf Smartphones passen wir die Bilder etwas an, damit sie nicht den ganzen Screen füllen */
+        @media (max-width: 768px) {
+            .project-featured { height: 280px; }
+            .project-featured-img-wrapper { width: 180px; height: 180px; top: 50px; }
+            @keyframes seamless-pass { 
+                0% { left: -180px; } 
+                100% { left: 100%; } 
+            }
+        }
         
         .project-grid { 
             display: grid; 
@@ -322,12 +332,6 @@
             color: var(--text-dark); 
             border-top: 1px solid #f0f0f0; 
             background: #fafafa; 
-        } 
-        
-        @media (max-width: 768px) { 
-            .project-featured { height: auto; overflow: visible; display: block; }
-            .project-featured-img-wrapper { animation: none; position: relative; margin: 0 auto; top: 0; left: auto; } 
-            .project-featured-img-wrapper.second { display: none; } /* Auf Handys reicht ein Bild */
         } 
         
         /* 4. KONTAKT & RECHTLICHES IMPRESSUM */ 
@@ -421,7 +425,6 @@
         </header>
 
         <div class="container">
-            <!-- Überschrift mit Emojis -->
             <h2 class="section-title">&#x2728; &bdquo;Designen mit Leidenschaft und Herzblut f&uuml;r technische Produkte &amp; 3D-Objekte sind wir da!&ldquo; &#x1F4AB;</h2>
             <p class="section-subtitle">Wir begleiten Sie von der ersten Skizze &uuml;ber das kreative Grafikdesign bis hin zur pr&auml;zisen 3D-Konstruktion. Als engagierter Partner f&uuml;r Unternehmen und Start-ups entwickeln wir technische Produkte und 3D-Objekte mit hohem Qualit&auml;tsanspruch &ndash; zuverl&auml;ssig, nah am Kunden und l&ouml;sungsorientiert.</p>
 
@@ -449,7 +452,7 @@
                 </div>
             </div>
 
-            <!-- PROJEKTE (ZWEI BILDER FÜR LÜCKENLOSEN DURCHLAUF) -->
+            <!-- PROJEKTE (ZWEI BILDER FÜR LÜCKENLOSEN DURCHLAUF AUF PC & HANDY) -->
             <div id="projekte" class="projects-section">
                 <h2 class="section-title">Unsere Projekte</h2>
                 
@@ -457,7 +460,6 @@
                     <div class="project-featured-img-wrapper">
                         <img src="projekt1.jpg" alt="Zahnrad Konstruktion" class="project-featured-img">
                     </div>
-                    <!-- Das zweite Bild fängt das erste Bild lückenlos ab -->
                     <div class="project-featured-img-wrapper second">
                         <img src="projekt1.jpg" alt="Zahnrad Konstruktion" class="project-featured-img">
                     </div>
