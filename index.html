@@ -30,11 +30,34 @@
         .sidebar-nav {
             width: 250px; height: 100vh;
             background-color: var(--deep-background);
-            border-right: 3px solid var(--gold-accent); /* Goldener Rand bleibt erhalten */
+            border-right: 3px solid var(--gold-accent);
             position: fixed; top: 0; left: 0;
             display: flex; flex-direction: column;
             padding: 1.5rem 1rem; box-sizing: border-box; z-index: 1000;
         }
+        
+        /* Sidebar Buttons */
+        .sidebar-nav .nav-btn {
+            display: block;
+            background: #ffffff;
+            color: var(--text-dark);
+            text-align: center;
+            padding: 0.7rem;
+            margin-bottom: 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid #eeeeee;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        .sidebar-nav .logo-box {
+            background: transparent;
+            padding: 0.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
         .main-content { margin-left: 250px; flex: 1; min-width: 0; }
         .container { max-width: 1100px; margin: 4rem auto; padding: 0 2rem; box-sizing: border-box; }
         
@@ -78,7 +101,7 @@
             line-height: 1.6;
         }
         
-        /* DIENSTLEISTUNGS-KARTEN (FLÄCHE JETZT WEISS) */
+        /* DIENSTLEISTUNGS-KARTEN - HIER JETZT WEISS */
         .horizontal-scroll-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); 
@@ -88,7 +111,7 @@
         }
         
         .koerber-card { 
-            background: #ffffff; /* Leistungsflächen komplett auf Weiß geändert */
+            background: #ffffff; /* Leistungsfläche weiß gemacht */
             border-radius: 4px; 
             min-height: 280px; 
             border-top: 4px solid var(--primary-purple); 
@@ -104,7 +127,7 @@
         .koerber-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--dark-purple); margin-top: 0; }
         .koerber-card p { font-size: 0.85rem; color: #444444; margin: 0; line-height: 1.5; }
 
-        /* PROJEKTE & KETTEN-ANIMATION NR. 1 */
+        /* PROJEKTE & KETTEN-ANIMATION */
         .projects-section { margin-top: 5rem; text-align: left; }
         
         .project-featured {
@@ -169,7 +192,7 @@
             .project-featured-img-wrapper { width: 200px; height: 200px; }
         }
 
-        /* 3. GESPERRTER BEREICH: KONTAKT & FOOTER MIT IMPRESSUM (LINKS IN WEISS) */
+        /* 3. GESPERRTER BEREICH: KONTAKT & FOOTER (LINKS IN WEISS) */
         .contact-section { 
             background: var(--dark-purple); 
             color: white; 
@@ -180,7 +203,7 @@
             border-left: 6px solid var(--gold-accent); 
         }
         
-        /* Links im Kontaktbereich komplett in Weiß */
+        /* Links im Kontaktbereich in Weiß */
         .contact-section a { 
             color: #ffffff !important; 
             text-decoration: underline; 
@@ -196,7 +219,6 @@
         }
         .footer-container { max-width: 900px; margin: 0 auto; }
         
-        /* Klappmenü für Rechtstexte */
         .accordion-item { border-bottom: 1px solid #3c1963; }
         .accordion-trigger { 
             width: 100%; background: none; border: none; text-align: left; 
@@ -205,7 +227,7 @@
             justify-content: space-between; 
         }
         
-        /* Links im Footer komplett in Weiß */
+        /* Links im Footer in Weiß */
         .accordion-content a, .legal-text a { 
             color: #ffffff !important; 
             text-decoration: underline; 
@@ -219,13 +241,78 @@
         .legal-text { padding: 0.5rem 0 1.5rem 0; color: #c2b4d6; font-size: 0.95rem; }
         
         .footer-copyright { text-align: center; font-size: 0.85rem; color: #7c6894; margin-top: 2rem; }
-        /* GESPERRTER BEREICH ENDE */
     </style>
 </head>
 <body>
 
     <!-- SEITENLEISTE -->
     <div class="sidebar-nav">
+        <div class="logo-box">
+            <span style="color: #ffffff; font-size: 0.8rem; font-weight: bold;">PLC Team Design</span>
+        </div>
+        <a href="#" class="nav-btn">Shop</a>
+        <a href="#" class="nav-btn">Leistungen</a>
+        <a href="#" class="nav-btn">Projekte</a>
+        <a href="#" class="nav-btn">Contact</a>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <header>
+            <!-- Platzhalter für Ihr Logo Banner-Bild -->
+            <div style="color: white; font-size: 2rem; font-weight: bold; margin-bottom: 1rem;">PLC Team Design</div>
+            <div style="color: #ffffff; font-size: 1.2rem;">plctede@gmail.com | 05731 9829839</div>
+        </header>
+
+        <div class="container">
+            <h2 class="section-title">Designen mit Leidenschaft und Herzblut für technische Produkte & 3D-Objekte sind wir da!</h2>
+            <p class="section-subtitle">Wir begleiten Sie von der ersten Skizze über das kreative Grafikdesign bis hin zur präzisen 3D-Konstruktion. Als engagierter Partner für Unternehmen und Start-ups entwickeln wir technische Produkte und 3D-Objekte mit hohem Qualitätsanspruch – zuverlässig, nah am Kunden und lösungsorientiert.</p>
+
+            <!-- LEISTUNGEN (WEISSE FLÄCHEN) -->
+            <div class="horizontal-scroll-grid">
+                <div class="koerber-card">
+                    <h3>Wunschdesign</h3>
+                    <p>Wunschdesign: 3D-Körper als Datenformat zur Weiterverarbeitung wie Fräsen, Drehen, Lasern, 3D-Druck oder für Werbezwecke.</p>
+                </div>
+                <div class="koerber-card">
+                    <h3>Materialanpassung</h3>
+                    <p>Anpassungen von Holz, Glas, Stahl, Stein, Kunststoff, Pulver oder Weiteres.</p>
+                </div>
+                <div class="koerber-card">
+                    <h3>Begleitung & Beratung</h3>
+                    <p>Begleitung & Beratung für regionale Produktionen (ökologischer Fußabdruck) oder Weiteres.</p>
+                </div>
+                <div class="koerber-card">
+                    <h3>Technische Analyse</h3>
+                    <p>Sie benötigen nähere Lösungen für Wiederherstellungen, Reparaturen der 3D-Körper von Bauteilen, Baugruppen und die eine detaillierte FEM Analyse mit Simulationsberechnungen?</p>
+                </div>
+                <div class="koerber-card">
+                    <h3>Webdesign</h3>
+                    <p>Unterstützung von Unternehmen und Start-ups bei der professionellen Umsetzung Ihres Webauftritts mit modernsten Webtechnologien, individuell, flexibel nach Absprache.</p>
+                </div>
+            </div>
+
+            <!-- KONTAKTBEREICH -->
+            <div class="contact-section">
+                <h3>Kontaktieren Sie uns</h3>
+                <p>E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a></p>
+                <p>Telefon: <a href="tel:057319829839">05731 9829839</a></p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-container">
+                <div class="accordion-item">
+                    <button class="accordion-trigger">Impressum</button>
+                    <div class="accordion-content">
+                        <div class="legal-text">
+                            Hier stehen Ihre rechtlichen Informationen. <a href="#">Link zu den AGBs</a>.
+                        </div>
+                    </div>
+                </div>
+                <p class="footer-copyright">&copy; 2026 PLC Team Design. Alle Rechte vorbehalten.</p>
+            </div>
+        </footer>
     </div>
 
 </body>
