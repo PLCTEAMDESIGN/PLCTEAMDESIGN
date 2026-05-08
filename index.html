@@ -37,10 +37,10 @@
             padding: 1.5rem 1rem; box-sizing: border-box; z-index: 1000;
         }
         
-        /* OBERSTES SHOP-FELD (Normalzustand Weiß) */
+        /* SHOP-FELD GANZ OBEN (Weißer Hintergrund, goldener Rand) */
         .sidebar-shop {
             margin-bottom: 2.5rem; 
-            background-color: #ffffff; /* Exakt Weiß im unberührten Zustand */
+            background-color: #ffffff;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -61,20 +61,21 @@
             background-color: transparent;
         }
         
+        /* Text-Aufteilung: Nur noch das + und das Wort Shop */
         .shop-text-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             color: var(--gold-accent);
             font-weight: 800;
-            font-size: 0.9rem;
-            line-height: 1.4;
+            font-size: 1.1rem;
+            line-height: 1.2;
             text-align: center;
         }
         .shop-plus {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             line-height: 1;
-            margin: 0.2rem 0;
+            margin: 0.1rem 0;
         }
         
         /* Shop-Feld bei Berührung dezent lila */
@@ -82,12 +83,12 @@
             background-color: var(--hover-soft);
         }
         
-        /* MENÜLINKS DARUNTER (Normalzustand Weiß) */
+        /* MENÜLINKS DARUNTER (Weißer Hintergrund, goldener Rand) */
         .sidebar-link {
             color: var(--text-dark); text-decoration: none;
             font-weight: 700; font-size: 1rem;
             padding: 0.8rem 1rem; 
-            background-color: #ffffff; /* Exakt Weiß im unberührten Zustand */
+            background-color: #ffffff; 
             margin-bottom: 1rem; text-align: left;
             border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             border: 4px solid var(--gold-accent);
@@ -211,17 +212,16 @@
     <!-- SEITENLEISTE -->
     <div class="sidebar-nav">
         
-        <!-- Shop-Kachel ganz oben (Jetzt dauerhaft Weiß) -->
+        <!-- Shop-Kachel ganz oben (Jetzt garantiert ohne doppelten Text!) -->
         <a href="myspreadshop.de" target="_blank" rel="noopener noreferrer" class="sidebar-shop">
             <img src="shop-logo.png" alt="Shop" onerror="this.style.display='none'">
             <div class="shop-text-container">
-                <span>PLC Team Design</span>
                 <span class="shop-plus">+</span>
                 <span>Shop</span>
             </div>
         </a>
         
-        <!-- Menülinks darunter (Jetzt dauerhaft Weiß) -->
+        <!-- Menülinks darunter -->
         <a href="#leistungen" class="sidebar-link">Leistungen</a>
         <a href="#projekte" class="sidebar-link">Projekte</a>
         <a href="#kontakt" class="sidebar-link">Contact</a>
