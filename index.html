@@ -37,10 +37,10 @@
             padding: 1.5rem 1rem; box-sizing: border-box; z-index: 1000;
         }
         
-        /* SHOP-KASTEN GANZ OBEN MIT TRANSPARENT-FILTER */
+        /* OBERSTES SHOP-FELD (Normalzustand Weiß) */
         .sidebar-shop {
             margin-bottom: 2.5rem; 
-            background-color: transparent; 
+            background-color: #ffffff; /* Exakt Weiß im unberührten Zustand */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -49,7 +49,7 @@
             border: 4px solid var(--gold-accent);
             text-decoration: none;
             box-sizing: border-box;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease;
         }
         
         .sidebar-shop img { 
@@ -59,42 +59,43 @@
             display: block;
             margin-bottom: 0.5rem; 
             background-color: transparent;
-            mix-blend-mode: multiply; /* Blendet das Weiß des Bildes aus */
         }
         
-        /* Text-Aufteilung: Nur noch das + und das Wort Shop */
         .shop-text-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             color: var(--gold-accent);
             font-weight: 800;
-            font-size: 1.1rem;
-            line-height: 1.2;
+            font-size: 0.9rem;
+            line-height: 1.4;
             text-align: center;
-            transition: color 0.3s ease;
         }
         .shop-plus {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             line-height: 1;
-            margin: 0.1rem 0;
+            margin: 0.2rem 0;
         }
         
+        /* Shop-Feld bei Berührung dezent lila */
         .sidebar-shop:hover { 
-            background-color: var(--dark-purple);
+            background-color: var(--hover-soft);
         }
         
-        /* MENÜLINKS DARUNTER */
+        /* MENÜLINKS DARUNTER (Normalzustand Weiß) */
         .sidebar-link {
             color: var(--text-dark); text-decoration: none;
             font-weight: 700; font-size: 1rem;
-            padding: 0.8rem 1rem; background-color: #ffffff;
+            padding: 0.8rem 1rem; 
+            background-color: #ffffff; /* Exakt Weiß im unberührten Zustand */
             margin-bottom: 1rem; text-align: left;
             border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             border: 4px solid var(--gold-accent);
             box-sizing: border-box;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease;
         }
+        
+        /* Menülinks bei Berührung dezent lila */
         .sidebar-link:hover { 
             background-color: var(--hover-soft);
         }
@@ -210,16 +211,17 @@
     <!-- SEITENLEISTE -->
     <div class="sidebar-nav">
         
-        <!-- Shop-Kachel ganz oben -->
+        <!-- Shop-Kachel ganz oben (Jetzt dauerhaft Weiß) -->
         <a href="myspreadshop.de" target="_blank" rel="noopener noreferrer" class="sidebar-shop">
             <img src="shop-logo.png" alt="Shop" onerror="this.style.display='none'">
             <div class="shop-text-container">
+                <span>PLC Team Design</span>
                 <span class="shop-plus">+</span>
                 <span>Shop</span>
             </div>
         </a>
         
-        <!-- Menülinks darunter -->
+        <!-- Menülinks darunter (Jetzt dauerhaft Weiß) -->
         <a href="#leistungen" class="sidebar-link">Leistungen</a>
         <a href="#projekte" class="sidebar-link">Projekte</a>
         <a href="#kontakt" class="sidebar-link">Contact</a>
