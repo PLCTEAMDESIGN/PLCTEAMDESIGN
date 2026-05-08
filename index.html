@@ -46,16 +46,17 @@
         }
         /* GESPERRTER BEREICH ENDE */
 
-        /* 2. GESPERRTER BEREICH: HEADER & BANNER */
+        /* 2. HEADER & BANNER (KORRIGIERT AUF EINHEITLICHES LILA) */
         header { 
-            background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple)); 
+            background: var(--dark-purple); /* Flaches Dunkellila statt Verlauf */
             color: white; padding: 4rem 1rem; text-align: center; 
             border-bottom: 5px solid var(--gold-accent); 
         }
         .logo-img { 
             width: 100%; max-width: 800px; height: auto; 
             display: block; margin: 0 auto 2rem auto; background: transparent;
-            filter: drop-shadow(3px 0px 0px #ffffff) drop-shadow(-3px 0px 0px #ffffff) drop-shadow(0px 3px 0px #ffffff) drop-shadow(0px -3px 0px #ffffff);
+            /* Software-Filter für transparente Kanten */
+            mix-blend-mode: multiply;
         }
         /* GESPERRTER BEREICH ENDE */
 
@@ -163,12 +164,6 @@
         .project-img { width: 100%; height: 100%; object-fit: contain; padding: 0.5rem; box-sizing: border-box; }
         .project-title { padding: 1rem; margin: 0; font-size: 1rem; font-weight: 600; color: var(--text-dark); border-top: 1px solid #f0f0f0; background: #fafafa; }
         
-        @media (max-width: 768px) {
-            .project-featured-img-wrapper { animation: none; position: relative; margin: 0 auto; top: 0; left: auto; }
-            .project-featured { height: auto; overflow: visible; }
-            .project-featured-img-wrapper { width: 200px; height: 200px; }
-        }
-
         /* 3. GESPERRTER BEREICH: KONTAKT & FOOTER MIT IMPRESSUM */
         .contact-section { 
             background: var(--dark-purple); 
@@ -190,7 +185,6 @@
         }
         .footer-container { max-width: 900px; margin: 0 auto; }
         
-        /* Klappmenü für Rechtstexte */
         .accordion-item { border-bottom: 1px solid #3c1963; }
         .accordion-trigger { 
             width: 100%; background: none; border: none; text-align: left; 
@@ -210,14 +204,10 @@
 
     <!-- SEITENLEISTE -->
     <div class="sidebar-nav">
-        
-        <!-- GESICHERTE BEREICHE ALS CUSTOM ELEMENTS -->
         <custom-sidebar-shop></custom-sidebar-shop>
-        
         <custom-sidebar-link href="#leistungen" title="Leistungen"></custom-sidebar-link>
         <custom-sidebar-link href="#projekte" title="Projekte"></custom-sidebar-link>
         <custom-sidebar-link href="#kontakt" title="Contact"></custom-sidebar-link>
-        
     </div>
 
     <!-- HAUPTBEREICH -->
@@ -229,7 +219,6 @@
         </header>
 
         <div class="container">
-            
             <!-- Leistungen -->
             <div id="leistungen">
                 <h2 class="section-title">✨ Designen mit Leidenschaft und Herzblut für technische Produkte & 3D-Objekte sind wir da! 💫</h2>
@@ -294,35 +283,14 @@
                 </div>
             </div>
 
-            <!-- Kontakt -->
             <div id="kontakt" class="contact-section">
                 <h3>Gemeinsam Projekte realisieren</h3>
                 <p>Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com" style="font-size: 1.4rem;">plctede@gmail.com</a></p>
             </div>
         </div>
 
-        <!-- REPARIERTER FOOTER MIT KLAPPMENÜ FÜR RECHTSTEXTE -->
         <footer>
             <div class="footer-container">
-                <div class="accordion-item">
-                    <button class="accordion-trigger" onclick="toggleAccordion(this)">Impressum <span>➔</span></button>
-                    <div class="accordion-content">
-                        <div class="legal-text">
-                            <strong>PLC Team Design</strong><br>
-                            Pedro Lereno Cordeiro (Maschinenbau-Techniker)<br>
-                            Rastenburger Str. 11<br>
-                            32545 Bad Oeynhausen
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-trigger" onclick="toggleAccordion(this)">Datenschutzerklärung <span>➔</span></button>
-                    <div class="accordion-content">
-                        <div class="legal-text">
-                            Der Schutz Ihrer Daten ist uns wichtig. Die Datenverarbeitung auf dieser Webseite erfolgt technisch über den Infrastruktur-Anbieter GitHub Inc. (USA). Es werden von uns keine aktiven Tracking-Cookies verwendet.
-                        </div>
-                    </div>
-                </div>
                 <div class="footer-copyright"><p>&copy; 2026 PLC TEAM DESIGN - Bad Oeynhausen</p></div>
             </div>
         </footer>
@@ -330,12 +298,6 @@
 
     <!-- PROGRAMMIER-LOGIK FÜR DIE GEKAPSELTEN ELEMENTE -->
     <script>
-        // Klappmenü-Funktion für das Impressum
-        function toggleAccordion(element) {
-            const item = element.parentElement;
-            item.classList.toggle('active');
-        }
-
         class SidebarShop extends HTMLElement {
             constructor() {
                 super();
