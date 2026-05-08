@@ -33,6 +33,33 @@
             display: flex; flex-direction: column; 
             padding: 1.5rem 1rem; box-sizing: border-box; z-index: 1000; 
         } 
+        
+        /* Styles für das kleine Logo und Buttons in der Sidebar */
+        .sidebar-logo {
+            width: 100%;
+            max-width: 180px;
+            height: auto;
+            display: block;
+            margin: 0 auto 2rem auto;
+        }
+        .sidebar-nav a.nav-btn {
+            display: block;
+            background: #ffffff;
+            color: var(--text-dark);
+            text-align: center;
+            padding: 0.7rem;
+            margin-bottom: 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid #eeeeee;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+        }
+        .sidebar-nav a.nav-btn:hover {
+            background-color: var(--hover-soft);
+        }
+
         .main-content { margin-left: 250px; flex: 1; min-width: 0; } 
         .container { max-width: 1100px; margin: 4rem auto; padding: 0 2rem; box-sizing: border-box; } 
         
@@ -160,13 +187,122 @@
         .accordion-item.active .accordion-content { max-height: 500px; } 
         .legal-text { padding: 0.5rem 0 1.5rem 0; color: #c2b4d6; font-size: 0.95rem; } 
         .footer-copyright { text-align: center; font-size: 0.85rem; color: #7c6894; margin-top: 2rem; } 
-        /* GESPERRTER BEREICH ENDE */ 
     </style>
 </head>
 <body> 
-    <!-- SEITENLEISTE --> 
+
+    <!-- SEITENLEISTE (Verknüpfung mit shop-logo.png) --> 
     <div class="sidebar-nav">
-        <!-- Inhalte Ihrer Sidebar folgen hier -->
+        <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
+        <a href="#shop" class="nav-btn">Shop</a>
+        <a href="#leistungen" class="nav-btn">Leistungen</a>
+        <a href="#projekte" class="nav-btn">Projekte</a>
+        <a href="#contact" class="nav-btn">Contact</a>
     </div>
+
+    <!-- MAIN CONTENT BEREICH -->
+    <div class="main-content">
+        
+        <!-- HEADER (Verknüpfung mit logo.png) -->
+        <header>
+            <img src="logo.png" alt="PLC Team Design Premium Logo" class="logo-img">
+        </header>
+
+        <div class="container">
+            <h2 class="section-title">Designen mit Leidenschaft und Herzblut für technische Produkte & 3D-Objekte sind wir da!</h2>
+            <p class="section-subtitle">Wir begleiten Sie von der ersten Skizze über das kreative Grafikdesign bis hin zur präzisen 3D-Konstruktion. Als engagierter Partner für Unternehmen und Start-ups entwickeln wir technische Produkte und 3D-Objekte mit hohem Qualitätsanspruch – zuverlässig, nah am Kunden und lösungsorientiert.</p>
+
+            <!-- DIENSTLEISTUNGEN -->
+            <div id="leistungen" class="horizontal-scroll-grid">
+                <div class="koerber-card">
+                    <h3>Wunschdesign</h3>
+                    <p>Wunschdesign: 3D-Körper als Datenformat zur Weiterverarbeitung wie Fräsen, Drehen, Lasern, 3D-Druck oder für Werbezwecke.</p>
+                </div>
+                <div class="koerber-card">
+                    <h3>Materialanpassung</h3>
+                    <p>Anpassungen von Holz, Glas, Stahl, Stein, Kunststoff, Pulver oder Weiteres.</p>
+                </div>
+                <div class="koerber-card">
+                    <h3>Begleitung & Beratung</h3>
+                    <p>Begleitung & Beratung für regionale Produktionen (ökologischer Fußabdruck) oder Weiteres.</p>
+                </div>
+                <div class="koerber-card">
+                    <h3>Technische Analyse</h3>
+                    <p>Sie benötigen nähere Lösungen für Wiederherstellungen, Reparaturen der 3D-Körper von Bauteilen, Baugruppen und die eine detaillierte FEM Analyse mit Simulationsberechnungen?</p>
+                </div>
+                <div class="koerber-card">
+                    <h3>Webdesign</h3>
+                    <p>Unterstützung von Unternehmen und Start-ups bei der professionellen Umsetzung Ihres Webauftritts mit modernsten Webtechnologien, individuell, flexibel nach Absprache.</p>
+                </div>
+            </div>
+
+            <!-- PROJEKTE-BEREICH (Verknüpfungen mit projekt1.jpg bis projekt4.jpg) -->
+            <div id="projekte" class="projects-section">
+                <h2 class="section-title">Unsere Projekte</h2>
+                
+                <!-- Animiertes, rotierendes Hauptprojekt -->
+                <div class="project-featured">
+                    <div class="project-featured-img-wrapper">
+                        <img src="projekt1.jpg" alt="Zahnrad Konstruktion" class="project-featured-img">
+                    </div>
+                </div>
+
+                <!-- Projektübersicht Grid -->
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-img-wrapper">
+                            <img src="projekt1.jpg" alt="Projekt 1" class="project-img">
+                        </div>
+                        <h4 class="project-title">3D-Konstruktion Zahnrad</h4>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img-wrapper">
+                            <img src="projekt2.jpg" alt="Projekt 2" class="project-img">
+                        </div>
+                        <h4 class="project-title">Technische Zeichnung Gehäuse</h4>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img-wrapper">
+                            <img src="projekt3.jpg" alt="Projekt 3" class="project-img">
+                        </div>
+                        <h4 class="project-title">Prototyping & Design</h4>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img-wrapper">
+                            <img src="projekt4.jpg" alt="Projekt 4" class="project-img">
+                        </div>
+                        <h4 class="project-title">FEM Strukturanalyse</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KONTAKT-BEREICH -->
+            <div id="contact" class="contact-section">
+                <h3>Kontakt</h3>
+                <p>E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a></p>
+                <p>Telefon: <a href="tel:057319829839">05731 9829839</a></p>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-container">
+                <div class="accordion-item">
+                    <button class="accordion-trigger">Impressum & Rechtstexte</button>
+                    <div class="accordion-content">
+                        <div class="legal-text">
+                            Angaben gemäß § 5 TMG. PLC Team Design, Bad Oeynhausen. <br>
+                            E-Mail: plctede@gmail.com <br>
+                            <a href="#datenschutz">Datenschutzerklärung</a>
+                        </div>
+                    </div>
+                </div>
+                <p class="footer-copyright">&copy; 2026 PLC TEAM DESIGN. Alle Rechte vorbehalten.</p>
+            </div>
+        </footer>
+
+    </div>
+
 </body>
 </html>
