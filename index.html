@@ -48,69 +48,54 @@
             z-index: 1000; 
         } 
         
-        /* WEISSER SHOP-KASTEN MIT PARALLELEN PIXEL-ABMESSUNGEN */
+        /* ORIGINALER LOGO-SHOP KASTEN (BLEIBT VOLLKOMMEN UNBERÜHRT) */
         .logo-box {
-            width: 100% !important; 
-            max-width: 218px !important; /* Exakte Breite inklusive 6px Rand */
-            height: 130px !important; /* Fest definierte, feste Höhe */
-            background: #ffffff !important; 
-            padding: 0.5rem !important;
-            margin-bottom: 1.5rem !important;
-            border: 6px solid var(--gold-accent) !important; 
-            border-radius: 4px !important;
-            display: flex !important;
-            flex-direction: column !important; 
-            align-items: center !important; 
-            justify-content: center !important;
-            box-sizing: border-box !important; /* Verhindert, dass der Text die Box vergrößert */
-            transition: all 0.3s ease !important;
-            cursor: pointer;
-        }
-        
-        .logo-box:hover {
-            background-color: var(--primary-purple) !important;
-        }
-        .logo-box:hover .shop-plus,
-        .logo-box:hover .shop-text {
-            color: #ffffff !important;
+            background: transparent;
+            padding: 0.8rem 0.4rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 2px;
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .sidebar-logo {
-            width: 100% !important;
-            max-width: 130px !important;
-            height: auto !important;
-            display: block !important;
-            margin: 0 auto 0.2rem auto !important; 
+            width: 100%;
+            max-width: 180px;
+            height: auto;
+            display: block;
+            margin-bottom: 0.5rem; 
         }
 
         .shop-plus {
-            color: var(--primary-purple);
-            font-size: 1.3rem;
-            font-weight: 800;
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: bold;
             line-height: 1;
-            margin-bottom: 0.1rem; 
+            margin-bottom: 0.2rem; 
             text-align: center;
-            transition: color 0.3s ease;
         }
 
         .shop-text {
-            color: var(--text-dark);
-            font-size: 0.9rem;
+            color: #ffffff;
+            font-size: 0.95rem;
             font-weight: bold;
             text-align: center;
             letter-spacing: 0.5px;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
         }
 
-        /* ALLE TEXT-BUTTONS ERZWUNGEN EXAKT GLEICH GROSS WIE DIE SHOP-BOX */
+        /* TEXT-BUTTONS ERZWUNGEN EXAKT GLEICH GROSS UND SYMMETRISCH */
         .sidebar-nav a.nav-btn {
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
-            width: 100% !important; /* Gleiche maximale Breite (218px) */
-            max-width: 218px !important; 
-            height: 52px !important; /* Feste Höhe, damit Texte nichts verschieben */
+            width: 100% !important; 
+            max-width: 218px !important; /* Passt die Breite perfekt symmetrisch an */
+            height: 52px !important; /* Einheitliche feste Höhe gegen Text-Verschiebungen */
             background: #ffffff !important; 
             color: var(--text-dark) !important;
             text-decoration: none !important;
@@ -119,12 +104,13 @@
             border-radius: 4px !important;
             font-size: 0.9rem !important;
             margin-bottom: 1rem !important;
-            padding: 0 !important; /* Innenabstand genullt, um Verzerrung zu stoppen */
-            box-sizing: border-box !important; /* Hält die Pixelgröße starr fixiert */
+            padding: 0 !important; 
+            box-sizing: border-box !important; 
             transition: all 0.3s ease !important; 
             text-align: center !important;
         }
         
+        /* HOVER-EFFEKT: Verfärbt nur die drei Text-Buttons bei Berührung in Lila */
         .sidebar-nav a.nav-btn:hover {
             background-color: var(--primary-purple) !important; 
             color: #ffffff !important; 
@@ -403,15 +389,15 @@
 </head>
 <body> 
 
-    <!-- SEITENLEISTE (PIXELGENAU FIXIERT) --> 
+    <!-- SEITENLEISTE --> 
     <div class="sidebar-nav">
-        <!-- Weißer Kasten für Logo und Shop-Text (Dauerhaft starr fixiert) -->
-        <div class="logo-box" onclick="location.href='#shop'">
+        <!-- Originaler Logo-Shop Kasten (Unberührt laut Vorgabe) -->
+        <div class="logo-box">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
             <div class="shop-plus">+</div>
             <div class="shop-text">Shop</div>
         </div>
-        <!-- Menü-Buttons haargenau bündig und gleich breit wie die obere Box -->
+        <!-- Perfekt ausgerichtete Buttons mit 6px Goldrand und lila Hover -->
         <a href="#leistungen" class="nav-btn">Leistungen</a>
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#contact" class="nav-btn">Contact</a>
@@ -443,7 +429,7 @@
                     <p>Begleitung & Beratung für regionale Produktionen (ökologischer Fußabdruck) oder Weiteres.</p>
                 </div>
                 <div class="koerber-card">
-                    <h3>Technical Analysis</h3>
+                    <h3>Technische Analyse</h3>
                     <p>Sie benötigen nähere Lösungen für Wiederherstellungen, Reparaturen der 3D-Körper von Bauteilen, Baugruppen und die eine detaillierte FEM Analyse mit Simulationsberechnungen?</p>
                 </div>
                 <div class="koerber-card">
