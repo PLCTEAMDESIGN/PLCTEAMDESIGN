@@ -48,7 +48,7 @@
             z-index: 1000; 
         } 
         
-        /* ORIGINALER LOGO-SHOP KASTEN (BLEIBT VOLLKOMMEN UNBERÜHRT) */
+        /* ORIGINALER LOGO-SHOP KASTEN (REPRÄSENTIERT DEN ORIGINALZUSTAND) */
         .logo-box {
             background: transparent;
             padding: 0.8rem 0.4rem;
@@ -71,6 +71,7 @@
             margin-bottom: 0.5rem; 
         }
 
+        /* Zentriertes Pluszeichen unter dem Logo */
         .shop-plus {
             color: #ffffff;
             font-size: 1.2rem;
@@ -80,6 +81,7 @@
             text-align: center;
         }
 
+        /* Zentrierter Text Shop unter dem Pluszeichen */
         .shop-text {
             color: #ffffff;
             font-size: 0.95rem;
@@ -88,19 +90,19 @@
             letter-spacing: 0.5px;
         }
 
-        /* TEXT-BUTTONS ERZWUNGEN EXAKT GLEICH GROSS UND SYMMETRISCH */
+        /* TEXT-BUTTONS EXAKT SYMMETRISCH ANGEPASST */
         .sidebar-nav a.nav-btn {
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             width: 100% !important; 
-            max-width: 218px !important; /* Passt die Breite perfekt symmetrisch an */
-            height: 52px !important; /* Einheitliche feste Höhe gegen Text-Verschiebungen */
+            max-width: 218px !important; 
+            height: 52px !important; 
             background: #ffffff !important; 
             color: var(--text-dark) !important;
             text-decoration: none !important;
             font-weight: bold !important;
-            border: 6px solid var(--gold-accent) !important; /* Exakter 6px Goldrand */
+            border: 6px solid var(--gold-accent) !important; 
             border-radius: 4px !important;
             font-size: 0.9rem !important;
             margin-bottom: 1rem !important;
@@ -108,9 +110,9 @@
             box-sizing: border-box !important; 
             transition: all 0.3s ease !important; 
             text-align: center !important;
-        }
+        } 
         
-        /* HOVER-EFFEKT: Verfärbt nur die drei Text-Buttons bei Berührung in Lila */
+        /* HOVER-EFFEKT: Verfärbt die drei unteren Text-Buttons bei Berührung in Lila */
         .sidebar-nav a.nav-btn:hover {
             background-color: var(--primary-purple) !important; 
             color: #ffffff !important; 
@@ -391,13 +393,13 @@
 
     <!-- SEITENLEISTE --> 
     <div class="sidebar-nav">
-        <!-- Originaler Logo-Shop Kasten (Unberührt laut Vorgabe) -->
+        <!-- Originaler Logo-Shop Kasten (Logo oben, + und Shop zentriert darunter) -->
         <div class="logo-box">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
             <div class="shop-plus">+</div>
             <div class="shop-text">Shop</div>
         </div>
-        <!-- Perfekt ausgerichtete Buttons mit 6px Goldrand und lila Hover -->
+        <!-- Symmetrische Menü-Buttons mit 6px Goldrand und lila Hover -->
         <a href="#leistungen" class="nav-btn">Leistungen</a>
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#contact" class="nav-btn">Contact</a>
