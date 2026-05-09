@@ -48,7 +48,7 @@
             line-height: 1.58;
         }
 
-        /* ========== SEITENLEISTE (goldener 0.5px rand) ========== */
+        /* ========== SEITENLEISTE (goldener 3px rand) ========== */
         .sidebar-nav {
             width: 270px;
             height: 100vh;
@@ -66,10 +66,9 @@
             gap: 1rem;
         }
 
-        /* ANPASSUNG: Logo-Rand auf 0.5 Pixel */
         .logo-box {
             background: #ffffff;
-            border: 0.5px solid var(--gold-accent);
+            border: 3px solid var(--gold-accent);
             border-radius: 20px;
             display: flex;
             flex-direction: column;
@@ -490,16 +489,6 @@
             }
         }
 
-        @media (max-width: 640px) {
-            .project-grid {
-                grid-template-columns: 1fr; /* Jedes Projekt nimmt volle Breite ein */
-            }
-            .project-img-wrapper {
-                height: auto;          /* Höhe dynamisch anpassen */
-                aspect-ratio: 1 / 1;  /* Quadratisches Verhältnis bewahren */
-            }
-        }
-
         @media (max-width: 580px) {
             .loop-item {
                 flex: 0 0 160px;
@@ -509,6 +498,9 @@
             .counter-rotating-gear {
                 width: 130px;
                 height: 130px;
+            }
+            .project-img-wrapper {
+                height: 200px;
             }
             .running-project-img {
                 animation-duration: 22s;
@@ -564,13 +556,6 @@
         <!-- ========= 1. UNABHÄNGIGER INFINITE-BEREICH: VON LINKS NACH RECHTS + ROTATION GEGEN UHRZEIGERSINN ========= -->
         <section id="projekte" class="projects-section">
             <h2 class="section-title">Kinematisches Highlight – 3D-Zahnrad in Endlosschleife</h2>
-            
-            <!-- NEU: Eingefügter Text gemäß Anforderung -->
-            <div style="margin-bottom: 1.5rem; padding: 0.5rem 1rem; background: rgba(212, 175, 55, 0.1); border-left: 4px solid var(--gold-accent); border-radius: 12px;">
-                <p style="font-weight: 500; color: var(--dark-purple); margin-bottom: 0.25rem;">2 Öffnungs- und Abwägungen (Unglückstunde)</p>
-                <p style="font-weight: 500; color: var(--dark-purple);">Überprüfung der Zahnräder</p>
-            </div>
-            
             <div class="featured-infinite-area">
                 <div class="infinite-track-ltr">
                     <!-- Doppelte Items für nahtlosen Übergang (immer gleiches Bild) -->
